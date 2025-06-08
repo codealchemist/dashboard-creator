@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
-import anime from 'animejs/lib/anime.es.js';
+import { animate, timeline } from 'animejs';
 
 const WelcomeContainer = styled.div`
   display: flex;
@@ -68,7 +68,7 @@ export default function WelcomePage() {
   const circleRef = useRef(null);
 
   useEffect(() => {
-    const tl = anime.timeline({
+    const tl = timeline({
       easing: 'easeOutExpo',
       duration: 1200 // Default duration for timeline tweens
     });
@@ -122,7 +122,7 @@ export default function WelcomePage() {
 
     // Cleanup function
     return () => {
-      anime.remove([fireRef.current, waterRef.current, circleRef.current]);
+      animate.remove([fireRef.current, waterRef.current, circleRef.current]);
     };
   }, []); // Empty dependency array ensures this runs once on mount
 
