@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { animate } from 'animejs';
+import anime from 'animejs';
 import { useDashboard } from '../context/DashboardContext';
 import { saveAs } from 'file-saver'; // Import file-saver
 
@@ -84,13 +84,13 @@ const SideMenu = () => {
   useEffect(() => {
     menuItemRefs.current.forEach((itemEl) => {
       if (!itemEl) return;
-      animate.remove(itemEl);
+      anime.remove(itemEl);
       const isActive = itemEl.classList.contains('active-link');
       const pathKey = itemEl.dataset.pathKey;
 
       itemEl.addEventListener('mouseenter', () => {
         if (!isActive) {
-          animate({
+          anime({
             targets: itemEl,
             backgroundColor: ['rgba(52, 152, 219, 0)', 'rgba(52, 152, 219, 0.3)'],
             color: [itemEl.style.color, '#ffffff'],
@@ -100,7 +100,7 @@ const SideMenu = () => {
       });
       itemEl.addEventListener('mouseleave', () => {
         if (!isActive) {
-          animate({
+          anime({
             targets: itemEl,
             backgroundColor: 'rgba(52, 152, 219, 0)',
             color: hasData(pathKey) ? '#5dade2' : '#7f8c8d',
@@ -109,7 +109,7 @@ const SideMenu = () => {
         }
       });
     });
-    return () => { menuItemRefs.current.forEach(itemEl => { if(itemEl) animate.remove(itemEl); }); };
+    return () => { menuItemRefs.current.forEach(itemEl => { if(itemEl) anime.remove(itemEl); }); };
   }, [router.pathname, hasData, config]); // Added config to dependencies because hasData is re-created if config changes.
 
   const handleExport = () => {
