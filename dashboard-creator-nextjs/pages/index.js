@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
-import anime from 'animejs';
+import anime from 'animejs/lib/anime.es.js';
 
 const WelcomeContainer = styled.div`
   display: flex;

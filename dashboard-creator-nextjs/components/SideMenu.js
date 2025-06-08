@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import anime from 'animejs';
+import anime from 'animejs/lib/anime.es.js';
 import { useDashboard } from '../context/DashboardContext';
 import { saveAs } from 'file-saver'; // Import file-saver
 
