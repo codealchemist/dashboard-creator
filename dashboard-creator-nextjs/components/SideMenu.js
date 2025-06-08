@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react'; // Removed useEffect, useRef
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import anime from 'animejs';
+// import anime from 'animejs'; // REMOVED
 import { useDashboard } from '../context/DashboardContext';
-import { saveAs } from 'file-saver'; // Import file-saver
+// import { saveAs } from 'file-saver'; // This was in SideMenu, keep it if export button is here.
 
 const MenuContainer = styled.nav`
   width: 230px;
@@ -33,7 +33,7 @@ const MenuItemLink = styled.a`
   text-decoration: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; // Basic CSS transition
   display: block;
 
   color: ${({ hasData, isActive }) => {
@@ -44,28 +44,34 @@ const MenuItemLink = styled.a`
 
   background-color: ${({ isActive }) => isActive ? '#3498db' : 'transparent'};
 
-  &:hover { color: #ffffff; }
-  &.active-link { background-color: #3498db; color: #ffffff; font-weight: 500; }
+  &:hover {
+    color: #ffffff; // Keep basic CSS hover
+    background-color: rgba(52, 152, 219, 0.15); // Simple background hover
+  }
+  &.active-link {
+    background-color: #3498db;
+    color: #ffffff;
+    font-weight: 500;
+  }
 `;
 
 const ExportButton = styled.button`
   font-size: 1.1em;
   padding: 13px 20px;
-  margin-top: 30px; // Space above the button
+  margin-top: 30px;
   text-decoration: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #27ae60; // Green color for export
+  background-color: #27ae60;
   color: white;
   border: none;
   text-align: center;
   transition: background-color 0.2s ease-in-out;
 
   &:hover {
-    background-color: #229954; // Darker green on hover
+    background-color: #229954;
   }
 `;
-
 
 const menuItemsList = [
   { name: 'Welcome', path: '/' },
@@ -76,53 +82,26 @@ const menuItemsList = [
   { name: 'Videos', path: '/videos' },
 ];
 
+// Assuming saveAs is still needed for export button, if not remove it too.
+// For now, assuming it's still there. If not, remove the import too.
+// It seems saveAs was imported in a previous version of SideMenu. Let's ensure it's there if button is.
+// Re-adding saveAs import if it was removed by broad sed, as ExportButton needs it.
+import { saveAs } from 'file-saver';
+
+
 const SideMenu = () => {
   const router = useRouter();
-  const menuItemRefs = useRef([]);
-  const { config, hasData } = useDashboard(); // Get global config
+  // const menuItemRefs = useRef([]); // REMOVED
+  const { config, hasData } = useDashboard();
 
-  useEffect(() => {
-    menuItemRefs.current.forEach((itemEl) => {
-      if (!itemEl) return;
-      anime.remove(itemEl);
-      const isActive = itemEl.classList.contains('active-link');
-      const pathKey = itemEl.dataset.pathKey;
-
-      itemEl.addEventListener('mouseenter', () => {
-        if (!isActive) {
-          anime({
-            targets: itemEl,
-            backgroundColor: ['rgba(52, 152, 219, 0)', 'rgba(52, 152, 219, 0.3)'],
-            color: [itemEl.style.color, '#ffffff'],
-            translateX: [0, 8], scale: [1, 1.05], duration: 300, easing: 'easeOutExpo'
-          });
-        }
-      });
-      itemEl.addEventListener('mouseleave', () => {
-        if (!isActive) {
-          anime({
-            targets: itemEl,
-            backgroundColor: 'rgba(52, 152, 219, 0)',
-            color: hasData(pathKey) ? '#5dade2' : '#7f8c8d',
-            translateX: 0, scale: 1, duration: 200, easing: 'easeInQuad'
-          });
-        }
-      });
-    });
-    return () => { menuItemRefs.current.forEach(itemEl => { if(itemEl) anime.remove(itemEl); }); };
-  }, [router.pathname, hasData, config]); // Added config to dependencies because hasData is re-created if config changes.
+  // useEffect for animejs animations REMOVED
 
   const handleExport = () => {
-    // We only want to export the 'settings' and 'panel' sections for now,
-    // or any other sections that are actually implemented and have data structures
-    // in our `initialState` in DashboardContext.js
     const exportableConfig = {
         settings: config.settings,
         panel: config.panel,
-        // Add other configured sections here as they are implemented
     };
-
-    const jsonString = JSON.stringify(exportableConfig, null, 2); // Pretty print JSON
+    const jsonString = JSON.stringify(exportableConfig, null, 2);
     const blob = new Blob([jsonString], { type: 'application/json' });
     saveAs(blob, 'dashboard-config.json');
   };
@@ -136,7 +115,7 @@ const SideMenu = () => {
         return (
           <Link key={item.name} href={item.path} passHref legacyBehavior>
             <MenuItemLink
-              ref={el => menuItemRefs.current[index] = el}
+              // ref={el => menuItemRefs.current[index] = el} // REMOVED ref
               isActive={isActive}
               hasData={hasData(pathKey)}
               className={isActive ? 'active-link' : ''}
