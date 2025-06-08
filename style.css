@@ -1,0 +1,147 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    max-width: 1200px; /* Limit overall width */
+    margin: auto; /* Center container */
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+#form-container {
+    margin-bottom: 20px;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 15px; /* Increased padding */
+    margin-bottom: 20px; /* Increased margin */
+    border-radius: 6px; /* Slightly more rounded */
+    background-color: #fdfdfd; /* Slight background tint for fieldsets */
+}
+
+legend {
+    font-weight: bold;
+    color: #337ab7; /* Bootstrap primary blue for legends */
+    padding: 0 5px; /* Padding around legend text */
+    font-size: 1.1em; /* Slightly larger legend */
+}
+
+label {
+    display: block;
+    margin-bottom: 6px; /* Consistent margin */
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: calc(100% - 22px); /* Keep consistent width calculation */
+    padding: 10px; /* Increased padding for inputs */
+    margin-bottom: 12px; /* Consistent margin */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+input[type="checkbox"] {
+    margin-right: 8px;
+    vertical-align: middle; /* Align checkbox better with label text */
+}
+
+/* Wrapper for fields to help with spacing and structure if needed */
+.field-wrapper {
+    margin-bottom: 10px;
+    padding-left: 5px; /* Indent fields slightly under their label */
+}
+
+
+.actions {
+    margin-top: 30px; /* More space above action buttons */
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    text-align: right; /* Align buttons to the right */
+}
+
+.actions button {
+    padding: 12px 20px; /* Larger buttons */
+    margin-left: 10px; /* Use margin-left for spacing when right-aligned */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.actions button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for array containers and items */
+.array-items-container {
+    margin-left: 15px; /* Indent array items */
+    border-left: 2px solid #eef; /* Visual cue for array item grouping */
+    padding-left: 15px;
+}
+
+.array-item {
+    border: 1px dashed #d0d0d0;
+    padding: 15px;
+    margin-top: 10px; /* Space between array items */
+    margin-bottom: 10px;
+    border-radius: 4px;
+    background-color: #f9f9f9; /* Slight background for each item */
+    position: relative; /* For potential absolute positioning of remove button if needed */
+}
+
+/* Styling for Add Item and Remove Item buttons */
+.array-controls-button { /* Generic class for array control buttons */
+    padding: 6px 12px;
+    font-size: 0.9em;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.add-item {
+    background-color: #28a745; /* Green */
+}
+.add-item:hover {
+    background-color: #218838;
+}
+
+.remove-item {
+    background-color: #dc3545; /* Red */
+    /* Position remove button nicely if desired, e.g., top-right */
+    /* float: right; /* Example, might need clearing or flexbox */
+}
+.remove-item:hover {
+    background-color: #c82333;
+}
+
+/* Clearfix for floated elements if any are used */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}

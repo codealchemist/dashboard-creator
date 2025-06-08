@@ -1,0 +1,4338 @@
+{
+  "_name": "Seminole Tribe (FL) Fire Rescue-Admin (Hollywood)",
+  "configVersion": "1.1.2",
+  "_configType": "desktop",
+  "_useContentFontSize": false,
+  "_postPullRequests": true,
+  "_pasteJson": "",
+  "_uploadJson": false,
+  "_enableToggleOperations": false,
+  "_enableSecondToggleOperations": false,
+  "_enableTruckRotation": false,
+  "settings": {
+    "faDashboardsApi": {
+      "user": "username",
+      "pass": "password"
+    },
+    "playerUuid": "bd31f0f5-a88f-4bb8-9632-6de86d35a850",
+    "address": "3105 N State Rd 7, Hollywood, FL 33021",
+    "city": "Hollywood",
+    "state": "FL",
+    "country": "us",
+    "geolocation": {
+      "lat": 26.037731235060875,
+      "lon": -80.20821816203937
+    },
+    "info": {
+      "stations": [
+        "admin"
+      ]
+    },
+    "_useOffsetHours": false,
+    "_useArcgisTokenProvider": false
+  },
+  "slideInDirection": "ltr",
+  "rotationTime": 60,
+  "columnTitleFontSize": "",
+  "displayMenu": true,
+  "_enableWeatherAlarms": false,
+  "_enableIpaws": true,
+  "ipaws": {
+    "duration": 60000,
+    "ds": {
+      "id": "Ipaws",
+      "method": "getFeed",
+      "params": {
+        "codeNWS": "FLC011",
+        "codeSAME": ""
+      }
+    },
+    "transformer": {
+      "id": "IpawsTransformer",
+      "method": "getFeed"
+    }
+  },
+  "_enablePortalMessages": true,
+  "_enablePortalVideos": true,
+  "_enableAlarms": true,
+  "autoReload": {
+    "skipReload": false,
+    "reloadInterval": 3600000
+  },
+  "_noPanel": false,
+  "panel": {
+    "position": "left",
+    "props": {
+      "useBattalionChief": true,
+      "pillTitle": "Shift Commander",
+      "surfFlagStatus": false,
+      "useFlagStatus": false,
+      "showWindCompass": false,
+      "hideForecastPanel": false,
+      "timeDiff": 0,
+      "useWeather": true,
+      "currentWeatherProps": {
+        "showHumidity": true,
+        "showWind": true,
+        "showWindDirection": false,
+        "showHeatIndex": false
+      },
+      "bgColor": "#ba131a",
+      "textColor": "#fff",
+      "useDate": true,
+      "_useBackgroundImage": false,
+      "agencyHash": "https://dashboards-storage.firstarrivingdigital.com/seminole-tribe-fl-firescue/logo.png",
+      "_useLogoWidth": false,
+      "_useSecondAgencyHash": false,
+      "_mottoType": "",
+      "_useMottoFontSize": false,
+      "_usePillTextColor": false,
+      "_usePillBorderColor": false,
+      "_usePillBackgroundColor": false,
+      "dateTimeFormat": "ddd MMMM D, HH:mm",
+      "_customizeClockFontSize": false,
+      "_useStationName": false,
+      "_useStationNameFontSize": false,
+      "_enableShift": true,
+      "_enableShift2": false,
+      "shift": {
+        "prefix": "",
+        "sufix": "Shift",
+        "ignoreDaylightSavings": false,
+        "defaultColor": "",
+        "sameColorAsShiftLetter": false,
+        "prefixColor": "",
+        "start": "2024-01-06 08:00",
+        "items": [
+          {
+            "value": "A",
+            "color": ""
+          },
+          {
+            "value": "B",
+            "color": ""
+          },
+          {
+            "value": "C",
+            "color": ""
+          },
+          {
+            "value": "D",
+            "color": ""
+          }
+        ]
+      },
+      "useBackgroundImage": true,
+      "battalionChief": {
+        "ds": {},
+        "transformer": {},
+        "_openDsForm": false,
+        "_openTransformerForm": false
+      }
+    },
+    "ds": {
+      "id": "BaronWeatherObservations",
+      "method": "getWeather",
+      "params": {
+        "tides": false,
+        "zipcode": "33021"
+      }
+    },
+    "transformer": {
+      "id": "BaronWeatherObservationsTransformer",
+      "method": "getWeatherInfo",
+      "params": {
+        "_useTideDatum": false,
+        "unit": "imperial"
+      },
+      "_useTideDatum": false
+    },
+    "battalionChief": {
+      "battalionTitles": [
+        ""
+      ],
+      "ds": {
+        "_name": "Seminole Tribe (FL) Fire Rescue - Battalion Chief Toggle",
+        "_pasteJson": "",
+        "_setJson": false,
+        "id": "TelestaffAPI",
+        "params": {
+          "showFullName": true,
+          "unitAbbreviation": "BAT2",
+          "offsetDays": -1,
+          "rankName": ""
+        },
+        "_copyJson": false,
+        "_submitPortal": true,
+        "method": "getBattalionChief"
+      },
+      "transformer": {
+        "_name": "Seminole Tribe (FL) Fire Rescue - Battalion Chief Toggle",
+        "_pasteJson": "",
+        "_setJson": false,
+        "id": "TelestaffAPITransformer",
+        "params": {
+          "_useCardColors": false,
+          "_useUnitPrefixColors": false
+        },
+        "_enableDecorators": false,
+        "_enableUpdaters": false,
+        "_enableFilters": false,
+        "_copyJson": false,
+        "_submitPortal": true,
+        "method": "getBattalionChief"
+      },
+      "_openDsForm": true,
+      "_openTransformerForm": true
+    }
+  },
+  "routes": [
+    {
+      "path": "/",
+      "icon": "faCloudSun",
+      "name": "Weather",
+      "disabled": false
+    },
+    {
+      "path": "/eso",
+      "icon": "faTableList",
+      "name": "Calls by Type",
+      "disabled": false
+    },
+    {
+      "path": "/reports",
+      "icon": "faClipboard",
+      "name": "Incomplete Reports",
+      "disabled": false
+    },
+    {
+      "path": "/turnouttimes",
+      "icon": "faStopwatch",
+      "name": "Turnout / Response Times",
+      "disabled": false
+    },
+    {
+      "path": "/halligan",
+      "icon": "faTruck",
+      "name": "Station 108 Fleet Status",
+      "disabled": false
+    },
+    {
+      "disabled": false,
+      "path": "/halligan2",
+      "icon": "faTruck",
+      "name": "Station 108 Equipment Status"
+    },
+    {
+      "path": "/slides",
+      "icon": "faStickyNote",
+      "name": "Slides",
+      "disabled": false
+    },
+    {
+      "path": "/scheduletoday",
+      "icon": "faUser",
+      "name": "Schedule Today",
+      "disabled": false
+    },
+    {
+      "path": "/scheduletomorrow",
+      "icon": "faUser",
+      "name": "Schedule Tomorrow",
+      "disabled": false
+    },
+    {
+      "path": "/opshos",
+      "icon": "faBuilding",
+      "name": "Hospital Status",
+      "disabled": false
+    },
+    {
+      "disabled": false,
+      "path": "/opshos2",
+      "icon": "faBuilding",
+      "name": "Operational Status"
+    },
+    {
+      "path": "/fire",
+      "icon": "faRss",
+      "name": "Fire Rescue1 / EMS1 / LODD",
+      "disabled": false
+    },
+    {
+      "path": "/camera",
+      "icon": "faCamera",
+      "name": "Traffic Cameras",
+      "disabled": false
+    },
+    {
+      "path": "/tasks",
+      "icon": "faClipboard",
+      "name": "Tasks / Events ",
+      "disabled": false
+    },
+    {
+      "path": "/inspection1",
+      "icon": "faList",
+      "name": "Inspections All Status - Current Day",
+      "disabled": false
+    },
+    {
+      "path": "/inspection2",
+      "icon": "faList",
+      "name": "Inspections Exclude Locked Status",
+      "disabled": false
+    },
+    {
+      "path": "/pass",
+      "icon": "faRotateRight",
+      "name": "STFR Daily Pass On and Roll Call Notes",
+      "disabled": false
+    },
+    {
+      "disabled": false,
+      "path": "/narc",
+      "icon": "faPills",
+      "name": "NarcBox"
+    },
+    {
+      "disabled": true,
+      "path": "/target",
+      "icon": "faCertificate",
+      "name": "Certificates / Assignments / Courses"
+    }
+  ],
+  "pages": [
+    {
+      "route": "/",
+      "header": {
+        "title": "",
+        "icon": ""
+      },
+      "columns": [
+        {
+          "title": "",
+          "colSpan": 1,
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "type": "weatherInfo",
+          "transformer": {
+            "_name": "Generic Baron Weather Observations",
+            "id": "BaronWeatherObservationsTransformer",
+            "method": "getWeatherInfo",
+            "params": {
+              "units": "imperial",
+              "sort": {},
+              "colors": {},
+              "filterLabels": {},
+              "groups": {},
+              "filterColumns": {},
+              "footer": {}
+            },
+            "decorators": [],
+            "updaters": [],
+            "filters": []
+          },
+          "ds": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - Baron Observation",
+            "id": "BaronWeatherObservations",
+            "method": "getWeather",
+            "params": {
+              "zipcode": "33021",
+              "filterBy": {},
+              "wetbulb": false,
+              "tides": true,
+              "heatIndex": false,
+              "parse": false
+            }
+          },
+          "_enableGridColumns": false,
+          "images": [
+            {
+              "src": "",
+              "refreshSeconds": 30
+            }
+          ],
+          "shiftBanner": false,
+          "_openTransformerForm": false,
+          "_openDsForm": false,
+          "_useContentFontSize": false,
+          "_useRefreshTtl": false,
+          "_useSlideDuration": false
+        },
+        {
+          "title": "",
+          "colSpan": 1,
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "type": "weatherRadar",
+          "transformer": "",
+          "ds": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - Baron Radar",
+            "id": "BaronWeatherRadar",
+            "method": "getRadarMap",
+            "params": {
+              "filterBy": {},
+              "_enableCustomZoom": false,
+              "_enableCustomSize": false,
+              "width": 906,
+              "location": "33021",
+              "interval": 10,
+              "parse": false
+            }
+          },
+          "_enableGridColumns": false,
+          "images": [
+            {
+              "src": "",
+              "refreshSeconds": 30
+            }
+          ],
+          "_openTransformerForm": false,
+          "_openDsForm": false,
+          "shiftBanner": false,
+          "_useContentFontSize": false,
+          "_useRefreshTtl": false,
+          "showTimeStamp": false,
+          "_useSlideDuration": false
+        }
+      ],
+      "disabled": false
+    },
+    {
+      "route": "/eso",
+      "header": {
+        "title": "",
+        "icon": ""
+      },
+      "columns": [
+        {
+          "type": "chart",
+          "select": [],
+          "ds": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - Call by Type Station 108 (Hollywood) (1)",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "EsoIncidents",
+            "params": {
+              "filterBy": {},
+              "groupField": "callType",
+              "account": "main",
+              "displayTotal": true,
+              "_filterUnits": false,
+              "parse": false,
+              "includeUnits": [
+                "BAT108",
+                "R108",
+                "R2108",
+                "DT4108",
+                "R3108",
+                "R4108"
+              ],
+              "excludeUnits": []
+            },
+            "_copyJson": false,
+            "_submitPortal": true,
+            "method": "getCallChart"
+          },
+          "title": "Calls by Type - Station 108 (Hollywood)",
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "transformer": {
+            "_name": "Generic ESO Incidents Call Chart",
+            "id": "EsoIncidentsTransformer",
+            "method": "getChart",
+            "params": {},
+            "_enableDecorators": false,
+            "_enableUpdaters": false,
+            "_enableFilters": false
+          },
+          "_enableGridColumns": false,
+          "_openTransformerForm": false,
+          "_openDsForm": false,
+          "shiftBanner": false,
+          "colSpan": 3,
+          "_useContentFontSize": false,
+          "_useRefreshTtl": false,
+          "_useSlideDuration": false
+        },
+        {
+          "title": "Calls by Units - Station 108 (Hollywood)",
+          "colSpan": 1,
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "shiftBanner": false,
+          "_customTitleTextColor": false,
+          "type": "table",
+          "transformer": {
+            "_name": "Generic ESO Incidents Calls by Units Table",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "EsoIncidentsTransformer",
+            "params": {
+              "_enableCustomHeaders": true,
+              "headers": [
+                "Units",
+                "Total"
+              ]
+            },
+            "_enableDecorators": false,
+            "_enableUpdaters": false,
+            "_enableFilters": false,
+            "_copyJson": false,
+            "_submitPortal": true,
+            "method": "getCallsByTypeTable"
+          },
+          "_openTransformerForm": true,
+          "ds": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - Call by Units Table Station 108 (Hollywood)",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "EsoIncidents",
+            "params": {
+              "_useTimeFilter": false,
+              "timeFilter": {
+                "_unit": ""
+              },
+              "filterBy": {},
+              "account": "main",
+              "includeUnits": [
+                "BAT108",
+                "R108",
+                "R2108",
+                "R3108",
+                "DT4108",
+                "R4108"
+              ],
+              "excludeUnits": [],
+              "groupField": "unit",
+              "displayTotal": true,
+              "_filterUnits": false
+            },
+            "_copyJson": false,
+            "_submitPortal": true,
+            "method": "getCallChart"
+          },
+          "_openDsForm": false,
+          "_enableGridColumns": false,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customTableSpan": true,
+          "_enableRowStatus": false,
+          "tableSpan": [
+            18,
+            6
+          ],
+          "_useHeaderRowColor": false,
+          "_useContentFontSize": false,
+          "_useCardFontSize": false,
+          "_useAlignHeaderRow": false,
+          "alignHeaderRow": "",
+          "_useCardHeight": false,
+          "_useCustomNoDataMessage": false,
+          "_useRefreshTtl": false,
+          "_useEvenOddColors": false,
+          "resultTextColor": "",
+          "_useCardBackgroundColor": false,
+          "_useCardTextColor": false,
+          "_useSlideDuration": false
+        }
+      ],
+      "disabled": false
+    },
+    {
+      "route": "/reports",
+      "header": {
+        "title": "",
+        "icon": ""
+      },
+      "columns": [
+        {
+          "type": "table",
+          "select": [],
+          "ds": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - ESO Incidents Incomplete Reports 30 Days ( Admin/Hollywood)",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "EsoIncidents",
+            "params": {
+              "combineUnits": true,
+              "account": "main",
+              "days": 30,
+              "filterBy": {},
+              "_useFilterByStationName": true,
+              "filterByStationName": "HOLLYWOOD RESERVATION - FIRE STATION #108"
+            },
+            "_copyJson": true,
+            "_submitPortal": true,
+            "method": "getIncompleteReports"
+          },
+          "title": "Incomplete Reports - Past 30 days (Admin/Hollywood)",
+          "colSpan": 1,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "transformer": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - Incomplete Report (2)",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "EsoIncidentsTransformer",
+            "params": {
+              "includeShift": false,
+              "includeNotes": false,
+              "includePersonnelName": true,
+              "includeAddress": true,
+              "includeInitialDispatchCode": true,
+              "_useCustomHeaders": true,
+              "customHeaders": [
+                "Incident Number",
+                "Incident type",
+                "Unit",
+                "Address",
+                "Personnel Name",
+                "Time",
+                "Initial Dispatch Code"
+              ],
+              "_enableCustomHeaders": true,
+              "headers": []
+            },
+            "_enableDecorators": false,
+            "_enableUpdaters": false,
+            "_enableFilters": false,
+            "_copyJson": false,
+            "_submitPortal": true,
+            "method": "getIncompleteReportsTable"
+          },
+          "_enableGridColumns": false,
+          "_customTableSpan": true,
+          "_enableRowStatus": false,
+          "tableSpan": [
+            2,
+            4,
+            2,
+            4,
+            4,
+            4,
+            2
+          ],
+          "_openTransformerForm": true,
+          "_openDsForm": true,
+          "shiftBanner": false,
+          "_useHeaderRowColor": false,
+          "_useContentFontSize": false,
+          "_useCardFontSize": false,
+          "_useAlignHeaderRow": false,
+          "alignHeaderRow": "",
+          "_useCardHeight": false,
+          "_useCustomNoDataMessage": false,
+          "_useRefreshTtl": false,
+          "_useEvenOddColors": false,
+          "resultTextColor": "",
+          "_useCardBackgroundColor": false,
+          "_useCardTextColor": false,
+          "_useSlideDuration": false
+        }
+      ],
+      "disabled": false
+    },
+    {
+      "route": "/turnouttimes",
+      "header": {
+        "title": "",
+        "icon": ""
+      },
+      "columns": [
+        {
+          "type": "table",
+          "select": [],
+          "ds": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - ESO Incidents Turnout Times Table (Units)",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "EsoIncidents",
+            "params": {
+              "blackAvg": 0,
+              "redAvg": 540,
+              "orangeAvg": 480,
+              "yellowAvg": 420,
+              "arrivedTime": false,
+              "account": "main",
+              "percentile": 90,
+              "shifts": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "shiftRotationStart": "2024-01-06T13:00:00.000Z",
+              "days": 30,
+              "filterBy": {},
+              "parse": false,
+              "includeUnits": [
+                "BAT108",
+                "BAT2",
+                "BAT38",
+                "BAT7",
+                "E7",
+                "E2",
+                "E38",
+                "R2",
+                "R202",
+                "R38",
+                "R7",
+                "R207",
+                "R108",
+                "R2108"
+              ],
+              "excludeUnits": [],
+              "_useAverageTimeSeconds": false
+            },
+            "_copyJson": false,
+            "_submitPortal": true,
+            "method": "getTurnoutTable"
+          },
+          "title": "Turnout Times  -  Last 30 days",
+          "colSpan": 1,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "transformer": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - ESO Incident Turnout Time Table",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "EsoIncidentsTransformer",
+            "method": "getTurnoutTable",
+            "params": {
+              "_useCustomHeaders": true,
+              "customHeaders": [
+                "Unit",
+                "Shift A",
+                "Shift B",
+                "Shift C",
+                "Shift D"
+              ]
+            },
+            "_enableDecorators": false,
+            "_enableUpdaters": false,
+            "_enableFilters": false,
+            "_copyJson": false,
+            "_submitPortal": true,
+            "alignHeaderCenter": true,
+            "_id": "65ea2b561ba4d7eaf99d5187"
+          },
+          "_enableGridColumns": false,
+          "_customTableSpan": true,
+          "_enableRowStatus": false,
+          "tableSpan": [
+            8,
+            4,
+            4,
+            4,
+            4
+          ],
+          "_openTransformerForm": true,
+          "_openDsForm": true,
+          "shiftBanner": false,
+          "_useHeaderRowColor": false,
+          "_useContentFontSize": false,
+          "_useCardFontSize": false,
+          "_useAlignHeaderRow": false,
+          "alignHeaderRow": "center",
+          "_useCardHeight": false,
+          "_useCustomNoDataMessage": false,
+          "_useRefreshTtl": false,
+          "_useEvenOddColors": false,
+          "resultTextColor": "",
+          "_useCardBackgroundColor": false,
+          "_useCardTextColor": false,
+          "_useSlideDuration": false
+        },
+        {
+          "title": "Response Times -  Last 30 days ",
+          "colSpan": 1,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "type": "table",
+          "transformer": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - ESO Incident Turnout Time Table",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "EsoIncidentsTransformer",
+            "method": "getTurnoutTable",
+            "params": {
+              "_useCustomHeaders": true,
+              "customHeaders": [
+                "Unit",
+                "Shift A",
+                "Shift B",
+                "Shift C",
+                "Shift D"
+              ]
+            },
+            "_enableDecorators": false,
+            "_enableUpdaters": false,
+            "_enableFilters": false,
+            "_copyJson": false,
+            "_submitPortal": true,
+            "alignHeaderCenter": true,
+            "_id": "65ea2b561ba4d7eaf99d5187"
+          },
+          "ds": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - ESO Incidents Response Times Table (Units)",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "EsoIncidents",
+            "params": {
+              "blackAvg": 0,
+              "redAvg": 540,
+              "orangeAvg": 480,
+              "yellowAvg": 420,
+              "arrivedTime": true,
+              "account": "main",
+              "percentile": 90,
+              "shifts": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "shiftRotationStart": "2024-01-06T13:00:00.000Z",
+              "days": 30,
+              "filterBy": {},
+              "parse": false,
+              "includeUnits": [
+                "BAT108",
+                "BAT2",
+                "BAT38",
+                "BAT7",
+                "E7",
+                "E2",
+                "E38",
+                "R2",
+                "R202",
+                "R38",
+                "R7",
+                "R207",
+                "R108",
+                "R2108"
+              ],
+              "excludeUnits": [],
+              "_useAverageTimeSeconds": false
+            },
+            "_copyJson": false,
+            "_submitPortal": true,
+            "method": "getTurnoutTable"
+          },
+          "_enableGridColumns": false,
+          "_customTableSpan": true,
+          "_enableRowStatus": false,
+          "tableSpan": [
+            8,
+            4,
+            4,
+            4,
+            4
+          ],
+          "_openTransformerForm": true,
+          "_openDsForm": false,
+          "shiftBanner": false,
+          "_useHeaderRowColor": false,
+          "_useContentFontSize": false,
+          "_useCardFontSize": false,
+          "_useAlignHeaderRow": false,
+          "alignHeaderRow": "center",
+          "_useCardHeight": false,
+          "_useCustomNoDataMessage": false,
+          "_useRefreshTtl": false,
+          "_useEvenOddColors": false,
+          "resultTextColor": "",
+          "_useCardBackgroundColor": false,
+          "_useCardTextColor": false,
+          "_useSlideDuration": false
+        }
+      ],
+      "disabled": false
+    },
+    {
+      "disabled": false,
+      "route": "/halligan",
+      "header": {
+        "title": "",
+        "icon": ""
+      },
+      "columns": [
+        {
+          "title": "Station 108 Fleet Status",
+          "colSpan": 1,
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "type": "table",
+          "transformer": {
+            "_name": "Generic Halligan Apparatus Status",
+            "id": "HalliganTransformer",
+            "method": "getApparatusStatusTable",
+            "params": {
+              "comments": true,
+              "cardColors": {},
+              "sortSchedules": {},
+              "sortShifts": {},
+              "filterQualifiers": {},
+              "sort": {},
+              "colors": {},
+              "filterLabels": {},
+              "groups": {},
+              "footer": {},
+              "filterColumns": {}
+            },
+            "_enableDecorators": false,
+            "_enableUpdaters": false,
+            "_enableFilters": false,
+            "decorators": [],
+            "updaters": [],
+            "filters": []
+          },
+          "_openTransformerForm": false,
+          "ds": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - Halligan Apparatus Station 108 ",
+            "id": "Halligan",
+            "method": "getApparatusStatus",
+            "params": {
+              "account": "main",
+              "includeApparatuses": [],
+              "excludeApparatuses": [],
+              "excludeStations": [],
+              "filterBy": {},
+              "_enableIncludeStations": true,
+              "includeStations": [
+                "**Hollywood - Station 108"
+              ],
+              "enableComments": true,
+              "parse": false
+            }
+          },
+          "_openDsForm": false,
+          "_enableGridColumns": false,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_useRefreshTtl": false,
+          "shiftBanner": false,
+          "_useSlideDuration": false,
+          "resultTextColor": "",
+          "_useEvenOddColors": false,
+          "_useAlignHeaderRow": false,
+          "alignHeaderRow": "",
+          "_customTableSpan": true,
+          "_useCardBackgroundColor": false,
+          "_useCardTextColor": false,
+          "_useHeaderRowColor": false,
+          "_useCardFontSize": false,
+          "_useCardHeight": false,
+          "_useCustomNoDataMessage": false,
+          "props": {
+            "_enableWeeksOption": false,
+            "_enableCardType": false
+          },
+          "_enableRowStatus": false,
+          "tableSpan": [
+            2,
+            6,
+            10,
+            3,
+            3
+          ]
+        }
+      ],
+      "_copyJson": false,
+      "_submit": true
+    },
+    {
+      "disabled": false,
+      "route": "/halligan2",
+      "header": {
+        "title": "",
+        "icon": ""
+      },
+      "columns": [
+        {
+          "title": "Equipment status",
+          "colSpan": 1,
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "type": "table",
+          "transformer": {
+            "_name": "Generic Halligan Equipment Status",
+            "id": "HalliganTransformer",
+            "method": "getEquipmentStatusTable",
+            "params": {},
+            "_enableDecorators": false,
+            "_enableUpdaters": false,
+            "_enableFilters": false
+          },
+          "_openTransformerForm": false,
+          "ds": {
+            "_name": "Generic Halligan Equipment Status",
+            "id": "Halligan",
+            "method": "getEquipmentStatus",
+            "params": {
+              "account": "main",
+              "ticketsOnly": true,
+              "includeStatuses": [],
+              "excludeStatuses": [],
+              "filterBy": {}
+            }
+          },
+          "_openDsForm": false,
+          "_enableGridColumns": false,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_useRefreshTtl": false,
+          "shiftBanner": false,
+          "_useSlideDuration": false,
+          "resultTextColor": "",
+          "_useEvenOddColors": false,
+          "_useAlignHeaderRow": false,
+          "alignHeaderRow": "",
+          "_customTableSpan": true,
+          "_useCardBackgroundColor": false,
+          "_useCardTextColor": false,
+          "_useHeaderRowColor": false,
+          "_useCardFontSize": false,
+          "_useCardHeight": false,
+          "_useCustomNoDataMessage": false,
+          "props": {
+            "_enableWeeksOption": false,
+            "_enableCardType": false
+          },
+          "_enableRowStatus": false,
+          "tableSpan": [
+            8,
+            8,
+            4,
+            4
+          ]
+        }
+      ],
+      "_copyJson": false,
+      "_submit": true
+    },
+    {
+      "route": "/slides",
+      "header": {
+        "title": "",
+        "icon": ""
+      },
+      "columns": [
+        {
+          "type": "slides",
+          "select": [],
+          "ds": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - FA Slides",
+            "id": "FaSlides",
+            "method": "getGoogleSlidesId",
+            "params": {
+              "account": "main",
+              "filterBy": {},
+              "agencyId": 1231,
+              "tag": "C6FSmDtrKr",
+              "parse": false
+            }
+          },
+          "title": "",
+          "colSpan": 1,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "transformer": {
+            "_name": "Generic FA Google Slides",
+            "id": "FaSlidesTransformer",
+            "method": "getSlides",
+            "params": {
+              "cap": "15"
+            },
+            "_enableDecorators": false,
+            "_enableUpdaters": false,
+            "_enableFilters": false
+          },
+          "_enableGridColumns": false,
+          "_openTransformerForm": false,
+          "_openDsForm": false,
+          "shiftBanner": false,
+          "_useContentFontSize": false,
+          "_useRefreshTtl": false,
+          "_useSlideDuration": false
+        }
+      ],
+      "disabled": false
+    },
+    {
+      "route": "/scheduletoday",
+      "header": {
+        "title": "Schedule Today",
+        "icon": "faUser"
+      },
+      "columns": [
+        {
+          "title": "",
+          "colSpan": 1,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "type": "stackColumn",
+          "transformer": "",
+          "ds": "",
+          "_enableGridColumns": false,
+          "stack": [
+            {
+              "colSpan": 1,
+              "_customBackgroundColor": false,
+              "type": "table",
+              "cardHeight": 50,
+              "transformer": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Telestaff API Table",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "TelestaffAPITransformer",
+                "method": "getTableSchedule",
+                "params": {
+                  "unitPrefixColors": {},
+                  "_enableSortSchedules": true,
+                  "sortSchedules": {
+                    "order": [
+                      "BC",
+                      "BC40",
+                      "BC1",
+                      "BC5",
+                      "BC6",
+                      "LT",
+                      "SC",
+                      "DE",
+                      "FF",
+                      "ADM"
+                    ],
+                    "index": 1
+                  },
+                  "_useCustomHeaders": false,
+                  "customHeaders": [
+                    "Name",
+                    "Position",
+                    "Unit",
+                    "Start",
+                    "End"
+                  ]
+                },
+                "_enableDecorators": false,
+                "_enableUpdaters": false,
+                "_enableFilters": false,
+                "_copyJson": false,
+                "_submitPortal": true,
+                "_id": "660187970efe666666522c6d"
+              },
+              "ds": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Immokalee Station (Abbr Unit & Rank)",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "TelestaffAPI",
+                "params": {
+                  "useAbbreviatedUnitName": true,
+                  "useAbbreviatedRank": true,
+                  "includeUnits": [],
+                  "excludeUnits": [],
+                  "timeDisplayFormat": "HH:mm",
+                  "_enableIncludeStations": true,
+                  "includeStations": [
+                    "Immokalee Fire Station #38"
+                  ],
+                  "_enableReplaceStationNames": false,
+                  "_enableExcludeSchedules": false,
+                  "daysCount": 1,
+                  "filterBy": {},
+                  "parse": false
+                },
+                "_copyJson": false,
+                "_submitPortal": true,
+                "method": "getScheduleFeed"
+              },
+              "_enableGridColumns": false,
+              "title": "Immokalee Fire Station #38",
+              "_customTextColor": false,
+              "_customTitleBackgroundColor": false,
+              "_customTitleTextColor": false,
+              "preWrap1": false,
+              "_customTableSpan": true,
+              "tableSpan": [
+                8,
+                5,
+                5,
+                3,
+                3
+              ],
+              "_enableRowStatus": false,
+              "images": [
+                {}
+              ],
+              "_openTransformerForm": false,
+              "_openDsForm": true,
+              "_useContentFontSize": false,
+              "_useCardFontSize": false,
+              "_useAlignHeaderRow1": false,
+              "alignHeaderRow1": "",
+              "_useRefreshTtl": false,
+              "_useEvenOddColors1": false,
+              "_useCardBackgroundColor": false,
+              "_useCardTextColor": false,
+              "_useSlideDuration": false
+            },
+            {
+              "colSpan": 1,
+              "title": "Hollywood Fire Station #108",
+              "_customBackgroundColor": false,
+              "_customTextColor": false,
+              "_customTitleBackgroundColor": false,
+              "_customTitleTextColor": false,
+              "type": "table",
+              "cardHeight": 50,
+              "preWrap1": false,
+              "transformer": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Telestaff API Table",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "TelestaffAPITransformer",
+                "method": "getTableSchedule",
+                "params": {
+                  "unitPrefixColors": {},
+                  "_enableSortSchedules": true,
+                  "sortSchedules": {
+                    "order": [
+                      "BC",
+                      "BC40",
+                      "BC1",
+                      "BC5",
+                      "BC6",
+                      "LT",
+                      "SC",
+                      "DE",
+                      "FF",
+                      "ADM"
+                    ],
+                    "index": 1
+                  },
+                  "_useCustomHeaders": false,
+                  "customHeaders": [
+                    "Name",
+                    "Position",
+                    "Unit",
+                    "Start",
+                    "End"
+                  ]
+                },
+                "_enableDecorators": false,
+                "_enableUpdaters": false,
+                "_enableFilters": false,
+                "_copyJson": false,
+                "_submitPortal": true,
+                "_id": "660187970efe666666522c6d"
+              },
+              "ds": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Hollywood Station Schedule (Abbr Unit & Rank)",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "TelestaffAPI",
+                "params": {
+                  "useAbbreviatedUnitName": true,
+                  "useAbbreviatedRank": true,
+                  "includeUnits": [],
+                  "excludeUnits": [],
+                  "timeDisplayFormat": "HH:mm",
+                  "_enableIncludeStations": true,
+                  "includeStations": [
+                    "Hollywood Fire Station #108"
+                  ],
+                  "_enableReplaceStationNames": false,
+                  "_enableExcludeSchedules": false,
+                  "daysCount": 1,
+                  "filterBy": {},
+                  "parse": false
+                },
+                "_copyJson": false,
+                "_submitPortal": true,
+                "method": "getScheduleFeed"
+              },
+              "_enableGridColumns": false,
+              "_customTableSpan": true,
+              "_enableRowStatus": false,
+              "tableSpan": [
+                8,
+                5,
+                5,
+                3,
+                3
+              ],
+              "images": [
+                {}
+              ],
+              "_openTransformerForm": false,
+              "_openDsForm": false,
+              "_useContentFontSize": false,
+              "_useCardFontSize": false,
+              "_useAlignHeaderRow1": false,
+              "alignHeaderRow1": "",
+              "_useRefreshTtl": false,
+              "_useEvenOddColors1": false,
+              "_useCardBackgroundColor": false,
+              "_useCardTextColor": false,
+              "_useSlideDuration": false
+            }
+          ],
+          "_openTransformerForm": false,
+          "_openDsForm": false,
+          "shiftBanner": false,
+          "_useContentFontSize": false,
+          "_useRefreshTtl": false,
+          "_useSlideDuration": false
+        },
+        {
+          "title": "",
+          "colSpan": 1,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "type": "stackColumn",
+          "transformer": "",
+          "ds": "",
+          "_enableGridColumns": false,
+          "stack": [
+            {
+              "colSpan": 1,
+              "_customBackgroundColor": false,
+              "type": "table",
+              "cardHeight": 50,
+              "transformer": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Telestaff API Table",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "TelestaffAPITransformer",
+                "method": "getTableSchedule",
+                "params": {
+                  "unitPrefixColors": {},
+                  "_enableSortSchedules": true,
+                  "sortSchedules": {
+                    "order": [
+                      "BC",
+                      "BC40",
+                      "BC1",
+                      "BC5",
+                      "BC6",
+                      "LT",
+                      "SC",
+                      "DE",
+                      "FF",
+                      "ADM"
+                    ],
+                    "index": 1
+                  },
+                  "_useCustomHeaders": false,
+                  "customHeaders": [
+                    "Name",
+                    "Position",
+                    "Unit",
+                    "Start",
+                    "End"
+                  ]
+                },
+                "_enableDecorators": false,
+                "_enableUpdaters": false,
+                "_enableFilters": false,
+                "_copyJson": false,
+                "_submitPortal": true,
+                "_id": "660187970efe666666522c6d"
+              },
+              "ds": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Brighton Schedule (Abbr Unit & Rank) (1)",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "TelestaffAPI",
+                "params": {
+                  "useAbbreviatedUnitName": true,
+                  "useAbbreviatedRank": true,
+                  "includeUnits": [],
+                  "excludeUnits": [],
+                  "timeDisplayFormat": "HH:mm",
+                  "_enableIncludeStations": true,
+                  "includeStations": [
+                    "Brighton Fire Station #7"
+                  ],
+                  "_enableReplaceStationNames": false,
+                  "_enableExcludeSchedules": false,
+                  "daysCount": 1,
+                  "filterBy": {},
+                  "parse": false,
+                  "offsetDays": 0
+                },
+                "_copyJson": false,
+                "_submitPortal": true,
+                "method": "getScheduleFeed"
+              },
+              "_enableGridColumns": false,
+              "title": "Brighton Fire Station #7",
+              "_customTextColor": false,
+              "_customTitleBackgroundColor": false,
+              "_customTitleTextColor": false,
+              "preWrap1": false,
+              "_customTableSpan": true,
+              "_enableRowStatus": false,
+              "tableSpan": [
+                8,
+                5,
+                5,
+                3,
+                3
+              ],
+              "images": [
+                {}
+              ],
+              "_openTransformerForm": false,
+              "_openDsForm": false,
+              "_useContentFontSize": false,
+              "_useCardFontSize": false,
+              "_useAlignHeaderRow1": false,
+              "alignHeaderRow1": "",
+              "_useRefreshTtl": false,
+              "_useEvenOddColors1": false,
+              "_useCardBackgroundColor": false,
+              "_useCardTextColor": false,
+              "_useSlideDuration": false
+            },
+            {
+              "colSpan": 1,
+              "title": "Big Cypress Fire Station #2",
+              "_customBackgroundColor": false,
+              "_customTextColor": false,
+              "_customTitleBackgroundColor": false,
+              "_customTitleTextColor": false,
+              "type": "table",
+              "cardHeight": 50,
+              "preWrap1": false,
+              "transformer": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Telestaff API Table",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "TelestaffAPITransformer",
+                "method": "getTableSchedule",
+                "params": {
+                  "unitPrefixColors": {},
+                  "_enableSortSchedules": true,
+                  "sortSchedules": {
+                    "order": [
+                      "BC",
+                      "BC40",
+                      "BC1",
+                      "BC5",
+                      "BC6",
+                      "LT",
+                      "SC",
+                      "DE",
+                      "FF",
+                      "ADM"
+                    ],
+                    "index": 1
+                  },
+                  "_useCustomHeaders": false,
+                  "customHeaders": [
+                    "Name",
+                    "Position",
+                    "Unit",
+                    "Start",
+                    "End"
+                  ]
+                },
+                "_enableDecorators": false,
+                "_enableUpdaters": false,
+                "_enableFilters": false,
+                "_copyJson": false,
+                "_submitPortal": true,
+                "_id": "660187970efe666666522c6d"
+              },
+              "ds": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Big Cypress Station (Abbr Unit & Rank) (1)",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "TelestaffAPI",
+                "params": {
+                  "useAbbreviatedUnitName": true,
+                  "useAbbreviatedRank": true,
+                  "includeUnits": [],
+                  "excludeUnits": [],
+                  "timeDisplayFormat": "HH:mm",
+                  "_enableIncludeStations": true,
+                  "includeStations": [
+                    "Big Cypress Fire Station #2"
+                  ],
+                  "_enableReplaceStationNames": false,
+                  "_enableExcludeSchedules": false,
+                  "daysCount": 1,
+                  "filterBy": {},
+                  "parse": false
+                },
+                "_copyJson": false,
+                "_submitPortal": true,
+                "method": "getScheduleFeed"
+              },
+              "_enableGridColumns": false,
+              "_customTableSpan": true,
+              "_enableRowStatus": false,
+              "tableSpan": [
+                8,
+                5,
+                5,
+                3,
+                3
+              ],
+              "images": [
+                {}
+              ],
+              "_openTransformerForm": false,
+              "_openDsForm": true,
+              "_useContentFontSize": false,
+              "_useCardFontSize": false,
+              "_useAlignHeaderRow1": false,
+              "alignHeaderRow1": "",
+              "_useRefreshTtl": false,
+              "_useEvenOddColors1": false,
+              "_useCardBackgroundColor": false,
+              "_useCardTextColor": false,
+              "_useSlideDuration": false
+            }
+          ],
+          "_openTransformerForm": false,
+          "_openDsForm": false,
+          "shiftBanner": false,
+          "_useContentFontSize": false,
+          "_useRefreshTtl": false,
+          "_useSlideDuration": false
+        },
+        {
+          "title": "Administration / Others",
+          "colSpan": 1,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "type": "table",
+          "cardHeight": 50,
+          "transformer": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - Telestaff API Table",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "TelestaffAPITransformer",
+            "method": "getTableSchedule",
+            "params": {
+              "unitPrefixColors": {},
+              "_enableSortSchedules": true,
+              "sortSchedules": {
+                "order": [
+                  "BC",
+                  "BC40",
+                  "BC1",
+                  "BC5",
+                  "BC6",
+                  "LT",
+                  "SC",
+                  "DE",
+                  "FF",
+                  "ADM"
+                ],
+                "index": 1
+              },
+              "_useCustomHeaders": false,
+              "customHeaders": [
+                "Name",
+                "Position",
+                "Unit",
+                "Start",
+                "End"
+              ]
+            },
+            "_enableDecorators": false,
+            "_enableUpdaters": false,
+            "_enableFilters": false,
+            "_copyJson": false,
+            "_submitPortal": true,
+            "_id": "660187970efe666666522c6d"
+          },
+          "ds": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - Admin/Training Schedule (Abbr Unit & Rank) (1)",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "TelestaffAPI",
+            "params": {
+              "useAbbreviatedUnitName": true,
+              "useAbbreviatedRank": true,
+              "includeUnits": [],
+              "excludeUnits": [],
+              "timeDisplayFormat": "HH:mm",
+              "_enableIncludeStations": true,
+              "includeStations": [
+                "Administrative Support",
+                "Training Division",
+                "Office of the Chief",
+                "Special Deploy",
+                "Community Risk Reduction Division",
+                "EMS Division",
+                "Holiday",
+                "Light Duty",
+                "MLOA",
+                "North District Chief",
+                "OPS Division",
+                "Prevention Big Cypress",
+                "Prevention Brighton",
+                "Prevention Hollywood",
+                "Prevention Immokalee",
+                "Prevention Tampa",
+                "Special Projects",
+                "Support",
+                "Wildland Big Cypress",
+                "Wildland Brighton",
+                "Wildland Fort Pierce",
+                "Wildland Immokalee",
+                "Wildland Lakeland",
+                "Wildland Trail",
+                "Wildland Yeehaw"
+              ],
+              "_enableReplaceStationNames": false,
+              "offsetDays": 0,
+              "_enableExcludeSchedules": false,
+              "daysCount": 1,
+              "filterBy": {},
+              "parse": false
+            },
+            "_copyJson": false,
+            "_submitPortal": true,
+            "method": "getScheduleFeed"
+          },
+          "_enableGridColumns": false,
+          "_customTableSpan": true,
+          "_enableRowStatus": false,
+          "tableSpan": [
+            8,
+            5,
+            5,
+            3,
+            3
+          ],
+          "_openTransformerForm": true,
+          "_openDsForm": true,
+          "shiftBanner": false,
+          "_useHeaderRowColor": false,
+          "_useContentFontSize": false,
+          "_useCardFontSize": false,
+          "_useAlignHeaderRow": false,
+          "alignHeaderRow": "",
+          "_useCardHeight": false,
+          "_useCustomNoDataMessage": false,
+          "_useRefreshTtl": false,
+          "_useEvenOddColors": false,
+          "resultTextColor": "",
+          "_useCardBackgroundColor": false,
+          "_useCardTextColor": false,
+          "_useSlideDuration": false
+        }
+      ],
+      "disabled": false
+    },
+    {
+      "route": "/scheduletomorrow",
+      "header": {
+        "title": "Schedule Tomorrow",
+        "icon": "faUser"
+      },
+      "columns": [
+        {
+          "title": "",
+          "colSpan": 1,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "type": "stackColumn",
+          "transformer": "",
+          "ds": "",
+          "_enableGridColumns": false,
+          "stack": [
+            {
+              "colSpan": 1,
+              "_customBackgroundColor": false,
+              "type": "table",
+              "cardHeight": 50,
+              "transformer": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Telestaff API Table",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "TelestaffAPITransformer",
+                "method": "getTableSchedule",
+                "params": {
+                  "unitPrefixColors": {},
+                  "_enableSortSchedules": true,
+                  "sortSchedules": {
+                    "order": [
+                      "BC",
+                      "BC40",
+                      "BC1",
+                      "BC5",
+                      "BC6",
+                      "LT",
+                      "SC",
+                      "DE",
+                      "FF",
+                      "ADM"
+                    ],
+                    "index": 1
+                  },
+                  "_useCustomHeaders": false,
+                  "customHeaders": [
+                    "Name",
+                    "Position",
+                    "Unit",
+                    "Start",
+                    "End"
+                  ]
+                },
+                "_enableDecorators": false,
+                "_enableUpdaters": false,
+                "_enableFilters": false,
+                "_copyJson": false,
+                "_submitPortal": true,
+                "_id": "660187970efe666666522c6d"
+              },
+              "ds": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Immokalee Station Tomorrow",
+                "id": "TelestaffAPI",
+                "method": "getScheduleFeed",
+                "params": {
+                  "includeUnits": [],
+                  "excludeUnits": [],
+                  "timeDisplayFormat": "HH:mm",
+                  "filterBy": {},
+                  "_enableIncludeStations": true,
+                  "includeStations": [
+                    "Immokalee Fire Station #38"
+                  ],
+                  "_enableReplaceStationNames": false,
+                  "_enableExcludeSchedules": false,
+                  "daysCount": 1,
+                  "offsetDays": 1,
+                  "parse": false,
+                  "useAbbreviatedUnitName": true,
+                  "useAbbreviatedRank": true
+                }
+              },
+              "_enableGridColumns": false,
+              "title": "Immokalee Fire Station #38",
+              "_customTextColor": false,
+              "_customTitleBackgroundColor": false,
+              "_customTitleTextColor": false,
+              "preWrap1": false,
+              "_customTableSpan": true,
+              "tableSpan": [
+                8,
+                5,
+                5,
+                3,
+                3
+              ],
+              "_enableRowStatus": false,
+              "images": [
+                {}
+              ],
+              "_openTransformerForm": false,
+              "_openDsForm": false,
+              "_useContentFontSize": false,
+              "_useCardFontSize": false,
+              "_useAlignHeaderRow1": false,
+              "alignHeaderRow1": "",
+              "_useRefreshTtl": false,
+              "_useEvenOddColors1": false,
+              "_useCardBackgroundColor": false,
+              "_useCardTextColor": false,
+              "_useSlideDuration": false
+            },
+            {
+              "colSpan": 1,
+              "title": "Hollywood Fire Station #108",
+              "_customBackgroundColor": false,
+              "_customTextColor": false,
+              "_customTitleBackgroundColor": false,
+              "_customTitleTextColor": false,
+              "type": "table",
+              "cardHeight": 50,
+              "preWrap1": false,
+              "transformer": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Telestaff API Table",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "TelestaffAPITransformer",
+                "method": "getTableSchedule",
+                "params": {
+                  "unitPrefixColors": {},
+                  "_enableSortSchedules": true,
+                  "sortSchedules": {
+                    "order": [
+                      "BC",
+                      "BC40",
+                      "BC1",
+                      "BC5",
+                      "BC6",
+                      "LT",
+                      "SC",
+                      "DE",
+                      "FF",
+                      "ADM"
+                    ],
+                    "index": 1
+                  },
+                  "_useCustomHeaders": false,
+                  "customHeaders": [
+                    "Name",
+                    "Position",
+                    "Unit",
+                    "Start",
+                    "End"
+                  ]
+                },
+                "_enableDecorators": false,
+                "_enableUpdaters": false,
+                "_enableFilters": false,
+                "_copyJson": false,
+                "_submitPortal": true,
+                "_id": "660187970efe666666522c6d"
+              },
+              "ds": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Hollywood Station Schedule Tomorrow",
+                "id": "TelestaffAPI",
+                "method": "getScheduleFeed",
+                "params": {
+                  "includeUnits": [],
+                  "excludeUnits": [],
+                  "timeDisplayFormat": "HH:mm",
+                  "filterBy": {},
+                  "_enableIncludeStations": true,
+                  "includeStations": [
+                    "Hollywood Fire Station #108"
+                  ],
+                  "_enableReplaceStationNames": false,
+                  "_enableExcludeSchedules": false,
+                  "daysCount": 1,
+                  "offsetDays": 1,
+                  "parse": false,
+                  "useAbbreviatedUnitName": true,
+                  "useAbbreviatedRank": true
+                }
+              },
+              "_enableGridColumns": false,
+              "_customTableSpan": true,
+              "_enableRowStatus": false,
+              "tableSpan": [
+                8,
+                5,
+                5,
+                3,
+                3
+              ],
+              "images": [
+                {}
+              ],
+              "_openTransformerForm": false,
+              "_openDsForm": false,
+              "_useContentFontSize": false,
+              "_useCardFontSize": false,
+              "_useAlignHeaderRow1": false,
+              "alignHeaderRow1": "",
+              "_useRefreshTtl": false,
+              "_useEvenOddColors1": false,
+              "_useCardBackgroundColor": false,
+              "_useCardTextColor": false,
+              "_useSlideDuration": false
+            }
+          ],
+          "_openTransformerForm": false,
+          "_openDsForm": false,
+          "shiftBanner": false,
+          "_useContentFontSize": false,
+          "_useRefreshTtl": false,
+          "_useSlideDuration": false
+        },
+        {
+          "title": "",
+          "colSpan": 1,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "type": "stackColumn",
+          "transformer": "",
+          "ds": "",
+          "_enableGridColumns": false,
+          "stack": [
+            {
+              "colSpan": 1,
+              "_customBackgroundColor": false,
+              "type": "table",
+              "cardHeight": 50,
+              "transformer": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Telestaff API Table",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "TelestaffAPITransformer",
+                "method": "getTableSchedule",
+                "params": {
+                  "unitPrefixColors": {},
+                  "_enableSortSchedules": true,
+                  "sortSchedules": {
+                    "order": [
+                      "BC",
+                      "BC40",
+                      "BC1",
+                      "BC5",
+                      "BC6",
+                      "LT",
+                      "SC",
+                      "DE",
+                      "FF",
+                      "ADM"
+                    ],
+                    "index": 1
+                  },
+                  "_useCustomHeaders": false,
+                  "customHeaders": [
+                    "Name",
+                    "Position",
+                    "Unit",
+                    "Start",
+                    "End"
+                  ]
+                },
+                "_enableDecorators": false,
+                "_enableUpdaters": false,
+                "_enableFilters": false,
+                "_copyJson": false,
+                "_submitPortal": true,
+                "_id": "660187970efe666666522c6d"
+              },
+              "ds": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Brighton Schedule Tomorrow",
+                "id": "TelestaffAPI",
+                "method": "getScheduleFeed",
+                "params": {
+                  "includeUnits": [],
+                  "excludeUnits": [],
+                  "timeDisplayFormat": "HH:mm",
+                  "filterBy": {},
+                  "_enableIncludeStations": true,
+                  "includeStations": [
+                    "Brighton Fire Station #7"
+                  ],
+                  "_enableReplaceStationNames": false,
+                  "_enableExcludeSchedules": false,
+                  "daysCount": 1,
+                  "offsetDays": 1,
+                  "parse": false,
+                  "useAbbreviatedUnitName": true,
+                  "useAbbreviatedRank": true
+                }
+              },
+              "_enableGridColumns": false,
+              "title": "Brighton Fire Station #7",
+              "_customTextColor": false,
+              "_customTitleBackgroundColor": false,
+              "_customTitleTextColor": false,
+              "preWrap1": false,
+              "_customTableSpan": true,
+              "_enableRowStatus": false,
+              "tableSpan": [
+                8,
+                5,
+                5,
+                3,
+                3
+              ],
+              "images": [
+                {}
+              ],
+              "_openTransformerForm": false,
+              "_openDsForm": false,
+              "_useContentFontSize": false,
+              "_useCardFontSize": false,
+              "_useAlignHeaderRow1": false,
+              "alignHeaderRow1": "",
+              "_useRefreshTtl": false,
+              "_useEvenOddColors1": false,
+              "_useCardBackgroundColor": false,
+              "_useCardTextColor": false,
+              "_useSlideDuration": false
+            },
+            {
+              "colSpan": 1,
+              "title": "Big Cypress Fire Station #2",
+              "_customBackgroundColor": false,
+              "_customTextColor": false,
+              "_customTitleBackgroundColor": false,
+              "_customTitleTextColor": false,
+              "type": "table",
+              "cardHeight": 50,
+              "preWrap1": false,
+              "transformer": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Telestaff API Table",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "TelestaffAPITransformer",
+                "method": "getTableSchedule",
+                "params": {
+                  "unitPrefixColors": {},
+                  "_enableSortSchedules": true,
+                  "sortSchedules": {
+                    "order": [
+                      "BC",
+                      "BC40",
+                      "BC1",
+                      "BC5",
+                      "BC6",
+                      "LT",
+                      "SC",
+                      "DE",
+                      "FF",
+                      "ADM"
+                    ],
+                    "index": 1
+                  },
+                  "_useCustomHeaders": false,
+                  "customHeaders": [
+                    "Name",
+                    "Position",
+                    "Unit",
+                    "Start",
+                    "End"
+                  ]
+                },
+                "_enableDecorators": false,
+                "_enableUpdaters": false,
+                "_enableFilters": false,
+                "_copyJson": false,
+                "_submitPortal": true,
+                "_id": "660187970efe666666522c6d"
+              },
+              "ds": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Big Cypress Station Tomorrow",
+                "id": "TelestaffAPI",
+                "method": "getScheduleFeed",
+                "params": {
+                  "includeUnits": [],
+                  "excludeUnits": [],
+                  "timeDisplayFormat": "HH:mm",
+                  "filterBy": {},
+                  "_enableIncludeStations": true,
+                  "includeStations": [
+                    "Big Cypress Fire Station #2"
+                  ],
+                  "_enableReplaceStationNames": false,
+                  "_enableExcludeSchedules": false,
+                  "daysCount": 1,
+                  "offsetDays": 1,
+                  "parse": false,
+                  "useAbbreviatedUnitName": true,
+                  "useAbbreviatedRank": true
+                }
+              },
+              "_enableGridColumns": false,
+              "_customTableSpan": true,
+              "_enableRowStatus": false,
+              "tableSpan": [
+                8,
+                5,
+                5,
+                3,
+                3
+              ],
+              "images": [
+                {}
+              ],
+              "_openTransformerForm": false,
+              "_openDsForm": false,
+              "_useContentFontSize": false,
+              "_useCardFontSize": false,
+              "_useAlignHeaderRow1": false,
+              "alignHeaderRow1": "",
+              "_useRefreshTtl": false,
+              "_useEvenOddColors1": false,
+              "_useCardBackgroundColor": false,
+              "_useCardTextColor": false,
+              "_useSlideDuration": false
+            }
+          ],
+          "_openTransformerForm": false,
+          "_openDsForm": false,
+          "shiftBanner": false,
+          "_useContentFontSize": false,
+          "_useRefreshTtl": false,
+          "_useSlideDuration": false
+        },
+        {
+          "title": "Administration / Others",
+          "colSpan": 1,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "type": "table",
+          "cardHeight": 50,
+          "transformer": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - Telestaff API Table",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "TelestaffAPITransformer",
+            "method": "getTableSchedule",
+            "params": {
+              "unitPrefixColors": {},
+              "_enableSortSchedules": true,
+              "sortSchedules": {
+                "order": [
+                  "BC",
+                  "BC40",
+                  "BC1",
+                  "BC5",
+                  "BC6",
+                  "LT",
+                  "SC",
+                  "DE",
+                  "FF",
+                  "ADM"
+                ],
+                "index": 1
+              },
+              "_useCustomHeaders": false,
+              "customHeaders": [
+                "Name",
+                "Position",
+                "Unit",
+                "Start",
+                "End"
+              ]
+            },
+            "_enableDecorators": false,
+            "_enableUpdaters": false,
+            "_enableFilters": false,
+            "_copyJson": false,
+            "_submitPortal": true,
+            "_id": "660187970efe666666522c6d"
+          },
+          "ds": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - Admin/Training Schedule Tomorrow",
+            "id": "TelestaffAPI",
+            "method": "getScheduleFeed",
+            "params": {
+              "includeUnits": [],
+              "excludeUnits": [],
+              "timeDisplayFormat": "HH:mm",
+              "filterBy": {},
+              "_enableIncludeStations": true,
+              "includeStations": [
+                "Administrative Support",
+                "Training Division",
+                "Office of the Chief",
+                "Special Deploy",
+                "Community Risk Reduction Division",
+                "EMS Division",
+                "Holiday",
+                "Light Duty",
+                "MLOA",
+                "North District Chief",
+                "OPS Division",
+                "Prevention Big Cypress",
+                "Prevention Brighton",
+                "Prevention Hollywood",
+                "Prevention Immokalee",
+                "Prevention Tampa",
+                "Special Projects",
+                "Support",
+                "Wildland Big Cypress",
+                "Wildland Brighton",
+                "Wildland Fort Pierce",
+                "Wildland Immokalee",
+                "Wildland Lakeland",
+                "Wildland Trail",
+                "Wildland Yeehaw"
+              ],
+              "_enableReplaceStationNames": false,
+              "_enableExcludeSchedules": false,
+              "daysCount": 1,
+              "offsetDays": 1,
+              "parse": false,
+              "useAbbreviatedUnitName": true,
+              "useAbbreviatedRank": true
+            }
+          },
+          "_enableGridColumns": false,
+          "_customTableSpan": true,
+          "_enableRowStatus": false,
+          "tableSpan": [
+            8,
+            5,
+            5,
+            3,
+            3
+          ],
+          "_openTransformerForm": false,
+          "_openDsForm": false,
+          "shiftBanner": false,
+          "_useHeaderRowColor": false,
+          "_useContentFontSize": false,
+          "_useCardFontSize": false,
+          "_useAlignHeaderRow": false,
+          "alignHeaderRow": "",
+          "_useCardHeight": false,
+          "_useCustomNoDataMessage": false,
+          "_useRefreshTtl": false,
+          "_useEvenOddColors": false,
+          "resultTextColor": "",
+          "_useCardBackgroundColor": false,
+          "_useCardTextColor": false,
+          "_useSlideDuration": false
+        }
+      ],
+      "disabled": false
+    },
+    {
+      "disabled": false,
+      "route": "/opshos",
+      "header": {
+        "title": "",
+        "icon": ""
+      },
+      "columns": [
+        {
+          "title": "Hospital status",
+          "colSpan": 1,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "type": "table",
+          "transformer": {
+            "_id": "6601b764bde1db72344e8754",
+            "_name": "Seminole Tribe (FL) Fire Rescue - Hospital Status",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "FaStorageTransformer",
+            "method": "getTableData",
+            "params": {
+              "headers": [],
+              "customHeaders": [
+                "Hospital",
+                "Notes",
+                "Status",
+                "Updated"
+              ],
+              "_enableCustomHeaders": true
+            },
+            "_enableDecorators": true,
+            "decorators": [
+              {
+                "id": "ValueMapDecorator",
+                "method": "getFromMap",
+                "params": {
+                  "useUpdated": false,
+                  "_hasIndex": false,
+                  "_selectorType": "index",
+                  "index": 2,
+                  "map": {
+                    "Normal Operations": "",
+                    "Critical Capacity": "bg-red",
+                    "Specialty Bypass": "bg-red",
+                    "Hospital Diversion": "bg-red",
+                    "Closed": "bg-red"
+                  },
+                  "date": "00/00/0000",
+                  "targetDate": "00/00/0000",
+                  "column": "",
+                  "classNames": [
+                    ""
+                  ],
+                  "offsetDays": "0"
+                }
+              }
+            ],
+            "_enableUpdaters": true,
+            "updaters": [],
+            "_enableFilters": false,
+            "_copyJson": false,
+            "_submitPortal": true
+          },
+          "ds": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - Hospital Status",
+            "id": "FaStorage",
+            "method": "getFileData",
+            "params": {
+              "_enableValueFilter": false,
+              "columns": [
+                0,
+                1,
+                2,
+                4
+              ],
+              "key": "hospital",
+              "filterBy": {},
+              "skipHeader": true,
+              "parse": false
+            }
+          },
+          "_enableGridColumns": false,
+          "_customTableSpan": true,
+          "_enableRowStatus": false,
+          "tableSpan": [
+            6,
+            8,
+            5,
+            5
+          ],
+          "_openTransformerForm": false,
+          "_openDsForm": false,
+          "shiftBanner": false,
+          "_useHeaderRowColor": false,
+          "_useContentFontSize": false,
+          "_useCardFontSize": false,
+          "_useAlignHeaderRow": false,
+          "alignHeaderRow": "",
+          "_useCardHeight": true,
+          "_useCustomNoDataMessage": false,
+          "_useRefreshTtl": false,
+          "_useEvenOddColors": false,
+          "cardHeight": 100,
+          "resultTextColor": "",
+          "_useCardBackgroundColor": false,
+          "_useCardTextColor": false,
+          "_useSlideDuration": false,
+          "props": {
+            "_enableWeeksOption": false,
+            "_enableCardType": false
+          }
+        }
+      ],
+      "_copyJson": false,
+      "_submit": true
+    },
+    {
+      "_pasteJson": "",
+      "_setJson": false,
+      "disabled": false,
+      "route": "/opshos2",
+      "header": {
+        "title": "",
+        "icon": ""
+      },
+      "columns": [
+        {
+          "type": "table",
+          "select": [],
+          "ds": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - Operational plans (Not Submitted)",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "FaStorage",
+            "params": {
+              "secondsToTime": false,
+              "defaultDate": "00/00/0000",
+              "_useDateIndex": true,
+              "_useType": false,
+              "filterByCurrentDay": false,
+              "_enableValueFilter": true,
+              "valueFiltersType": "include",
+              "valueFilters": [
+                {
+                  "value": "Not Submitted",
+                  "column": 3
+                }
+              ],
+              "_useIncludeUnits": false,
+              "_useExcludeUnits": false,
+              "combineUnits": false,
+              "_useAddressReplacement": false,
+              "_useColumns": true,
+              "columns": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "key": "ops_plans",
+              "_useIncidentNumberColumn": false,
+              "_useDaysRange": true,
+              "daysRange": 30,
+              "skipHeader": true,
+              "date": "00/00/0000",
+              "_useSortUnits": false,
+              "filterBy": {},
+              "parse": false,
+              "dateIndex": 2
+            },
+            "_copyJson": true,
+            "_submitPortal": true,
+            "method": "getFileData"
+          },
+          "title": "Operational Plans Needed",
+          "colSpan": 1,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "transformer": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - FA Storage Ops Table",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "FaStorageTransformer",
+            "params": {
+              "includeTotalCalls": false,
+              "_enableCustomHeaders": true,
+              "headers": [
+                "Event",
+                "Reservation",
+                "DateTime",
+                "Status"
+              ],
+              "_useHighlightByDate": true,
+              "highlightByDate": {
+                "index": 2,
+                "diffInDays": {
+                  "14": "bg-red",
+                  "28": "bg-orange"
+                },
+                "dateFormat": ""
+              },
+              "_useCardColors": false,
+              "_useRowColorByIndex": false,
+              "_enableSkipRows": false
+            },
+            "_enableDecorators": false,
+            "_enableUpdaters": false,
+            "_enableFilters": false,
+            "_copyJson": true,
+            "_submitPortal": true,
+            "method": "getTable",
+            "_id": "6601b0b7beac786608f6dfa7"
+          },
+          "_enableGridColumns": false,
+          "_customTableSpan": true,
+          "_enableRowStatus": false,
+          "tableSpan": [
+            8,
+            4,
+            6,
+            6
+          ],
+          "_openTransformerForm": true,
+          "_openDsForm": true,
+          "shiftBanner": false,
+          "_useHeaderRowColor": false,
+          "_useContentFontSize": false,
+          "_useCardFontSize": true,
+          "_useAlignHeaderRow": false,
+          "alignHeaderRow": "",
+          "_useCardHeight": false,
+          "_useCustomNoDataMessage": false,
+          "_useRefreshTtl": false,
+          "_useEvenOddColors": false,
+          "resultTextColor": "",
+          "_useCardBackgroundColor": false,
+          "_useCardTextColor": false,
+          "_useSlideDuration": false,
+          "props": {
+            "_enableWeeksOption": false,
+            "_enableCardType": false
+          },
+          "name": "",
+          "cardFontSize": "large"
+        }
+      ],
+      "_copyJson": false,
+      "_submit": true
+    },
+    {
+      "route": "/fire",
+      "header": {
+        "title": "",
+        "icon": ""
+      },
+      "columns": [
+        {
+          "type": "event",
+          "select": [],
+          "ds": {
+            "_name": "Generic RSS FireRescue1 News",
+            "id": "Rss",
+            "method": "getData",
+            "filterUnits": [
+              ""
+            ],
+            "params": {
+              "filterBy": {},
+              "url": "https://www.firerescue1.com/firefighting-rss-feeds/news.xml",
+              "onToday": false,
+              "groupingMap": {},
+              "grouping": [
+                {}
+              ],
+              "unitTypes": [
+                {
+                  "unitTypesMap": [
+                    {
+                      "unitType": "",
+                      "unitName": ""
+                    },
+                    {
+                      "unitType": "",
+                      "unitName": ""
+                    }
+                  ]
+                }
+              ],
+              "replaceStationName": {},
+              "truck": {}
+            },
+            "duration": {}
+          },
+          "title": "Fire Rescue1",
+          "colSpan": 1,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "transformer": {
+            "_name": "Generic RSS Feed",
+            "id": "RssTransformer",
+            "method": "getRssCards",
+            "params": {
+              "sortShifts3": {},
+              "sortShifts": {},
+              "filterQualifiers": {},
+              "sort": {},
+              "colors": {},
+              "filterLabels": {},
+              "groups": {},
+              "footer": {},
+              "filterColumns": {}
+            },
+            "_enableDecorators": false,
+            "_enableUpdaters": false,
+            "_enableFilters": false,
+            "decorators": [],
+            "updaters": [],
+            "filters": []
+          },
+          "_enableGridColumns": false,
+          "_customCardType": false,
+          "preWrap": false,
+          "_openTransformerForm": false,
+          "_openDsForm": false,
+          "shiftBanner": false,
+          "_useContentFontSize": false,
+          "_useRefreshTtl": false,
+          "_useEvenOddColors": false,
+          "resultTextColor": "",
+          "_useCardBackgroundColor": false,
+          "_useCardTextColor": false,
+          "_useSlideDuration": false
+        },
+        {
+          "title": "EMS1 News",
+          "colSpan": 1,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "type": "event",
+          "transformer": {
+            "_name": "Generic RSS Feed",
+            "id": "RssTransformer",
+            "method": "getRssCards",
+            "params": {
+              "sortShifts3": {},
+              "sortShifts": {},
+              "filterQualifiers": {},
+              "sort": {},
+              "colors": {},
+              "filterLabels": {},
+              "groups": {},
+              "footer": {},
+              "filterColumns": {}
+            },
+            "_enableDecorators": false,
+            "_enableUpdaters": false,
+            "_enableFilters": false,
+            "decorators": [],
+            "updaters": [],
+            "filters": []
+          },
+          "ds": {
+            "_name": "Generic RSS Feed EMS1 Products",
+            "id": "Rss",
+            "method": "getData",
+            "filterUnits": [
+              ""
+            ],
+            "params": {
+              "filterBy": {},
+              "url": "https://www.ems1.com/ems-rss-feeds/products.xml",
+              "onToday": false,
+              "groupingMap": {},
+              "grouping": [
+                {}
+              ],
+              "unitTypes": [
+                {
+                  "unitTypesMap": [
+                    {
+                      "unitType": "",
+                      "unitName": ""
+                    },
+                    {
+                      "unitType": "",
+                      "unitName": ""
+                    }
+                  ]
+                }
+              ],
+              "replaceStationName": {},
+              "truck": {}
+            },
+            "duration": {}
+          },
+          "_enableGridColumns": false,
+          "_customCardType": false,
+          "preWrap": false,
+          "_openTransformerForm": false,
+          "_openDsForm": false,
+          "shiftBanner": false,
+          "_useContentFontSize": false,
+          "_useRefreshTtl": false,
+          "_useEvenOddColors": false,
+          "resultTextColor": "",
+          "_useCardBackgroundColor": false,
+          "_useCardTextColor": false,
+          "_useSlideDuration": false
+        },
+        {
+          "title": "LODD Updates",
+          "colSpan": 1,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "type": "event",
+          "transformer": {
+            "_name": "Generic RSS Feed",
+            "id": "RssTransformer",
+            "method": "getRssCards",
+            "params": {
+              "sortShifts3": {},
+              "sortShifts": {},
+              "filterQualifiers": {},
+              "sort": {},
+              "colors": {},
+              "filterLabels": {},
+              "groups": {},
+              "footer": {},
+              "filterColumns": {}
+            },
+            "_enableDecorators": false,
+            "_enableUpdaters": false,
+            "_enableFilters": false,
+            "decorators": [],
+            "updaters": [],
+            "filters": []
+          },
+          "ds": {
+            "_name": "Generic LODD Updates RSS Feed",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "Rss",
+            "params": {
+              "date": "00/00/0000",
+              "url": "https://apps.usfa.fema.gov/firefighter-fatalities/api/fatalityDatums/feed",
+              "onToday": true,
+              "filterBy": {},
+              "parse": false,
+              "image": false,
+              "stripHTML": false
+            },
+            "_copyJson": false,
+            "_submitPortal": true,
+            "method": "getData"
+          },
+          "_enableGridColumns": false,
+          "_customCardType": false,
+          "preWrap": false,
+          "_openTransformerForm": false,
+          "_openDsForm": false,
+          "shiftBanner": false,
+          "_useContentFontSize": false,
+          "_useRefreshTtl": false,
+          "_useEvenOddColors": false,
+          "resultTextColor": "",
+          "_useCardBackgroundColor": false,
+          "_useCardTextColor": false,
+          "_useSlideDuration": false
+        }
+      ],
+      "disabled": false
+    },
+    {
+      "route": "/camera",
+      "header": {
+        "title": "",
+        "icon": ""
+      },
+      "columns": [
+        {
+          "type": "stackColumn",
+          "select": [],
+          "ds": {},
+          "title": "",
+          "colSpan": 1,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "transformer": "",
+          "_enableGridColumns": false,
+          "stack": [
+            {
+              "colSpan": 1,
+              "_customBackgroundColor": false,
+              "type": "image",
+              "_enableGridColumns": false,
+              "title": "Griffin Road at US-441",
+              "_customTextColor": false,
+              "_customTitleBackgroundColor": false,
+              "_customTitleTextColor": false,
+              "preWrap1": false,
+              "images": [
+                {
+                  "src": "https://fl511.com/map/Cctv/141--7",
+                  "refreshSeconds": 30,
+                  "text": "",
+                  "overrideTitle": "",
+                  "_useBackgroundImageColor": false
+                }
+              ],
+              "_openTransformerForm": false,
+              "_openDsForm": false,
+              "_useContentFontSize": false,
+              "_useRefreshTtl": false,
+              "_useSlideDuration": false
+            },
+            {
+              "colSpan": 1,
+              "title": "US-441 at Stirling Road",
+              "_customBackgroundColor": false,
+              "_customTextColor": false,
+              "_customTitleBackgroundColor": false,
+              "_customTitleTextColor": false,
+              "type": "image",
+              "preWrap1": false,
+              "_enableGridColumns": false,
+              "images": [
+                {
+                  "src": "https://fl511.com/map/Cctv/165--7",
+                  "refreshSeconds": 30,
+                  "text": "",
+                  "overrideTitle": "",
+                  "_useBackgroundImageColor": false
+                }
+              ],
+              "_openTransformerForm": false,
+              "_openDsForm": false,
+              "_useContentFontSize": false,
+              "_useRefreshTtl": false,
+              "_useSlideDuration": false
+            }
+          ],
+          "_openTransformerForm": false,
+          "_openDsForm": false,
+          "shiftBanner": false,
+          "_useContentFontSize": false,
+          "_useRefreshTtl": false,
+          "_useSlideDuration": false
+        },
+        {
+          "title": "",
+          "colSpan": 1,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "type": "stackColumn",
+          "transformer": "",
+          "ds": "",
+          "_enableGridColumns": false,
+          "stack": [
+            {
+              "colSpan": 1,
+              "_customBackgroundColor": false,
+              "type": "image",
+              "_enableGridColumns": false,
+              "title": "US-441 at Stirling Road",
+              "_customTextColor": false,
+              "_customTitleBackgroundColor": false,
+              "_customTitleTextColor": false,
+              "preWrap1": false,
+              "images": [
+                {
+                  "src": "https://fl511.com/map/Cctv/166--7",
+                  "refreshSeconds": 30,
+                  "text": "",
+                  "overrideTitle": "",
+                  "_useBackgroundImageColor": false
+                }
+              ],
+              "_openTransformerForm": false,
+              "_openDsForm": false,
+              "_useContentFontSize": false,
+              "_useRefreshTtl": false,
+              "_useSlideDuration": false
+            },
+            {
+              "colSpan": 1,
+              "title": "US-441 at Seminole Way",
+              "_customBackgroundColor": false,
+              "_customTextColor": false,
+              "_customTitleBackgroundColor": false,
+              "_customTitleTextColor": false,
+              "type": "image",
+              "preWrap1": false,
+              "_enableGridColumns": false,
+              "images": [
+                {
+                  "src": "https://fl511.com/map/Cctv/167--7",
+                  "refreshSeconds": 30,
+                  "text": "",
+                  "overrideTitle": "",
+                  "_useBackgroundImageColor": false
+                }
+              ],
+              "_openTransformerForm": false,
+              "_openDsForm": false,
+              "_useContentFontSize": false,
+              "_useRefreshTtl": false,
+              "_useSlideDuration": false
+            }
+          ],
+          "_openTransformerForm": false,
+          "_openDsForm": false,
+          "shiftBanner": false,
+          "_useContentFontSize": false,
+          "_useRefreshTtl": false,
+          "_useSlideDuration": false
+        }
+      ],
+      "disabled": false
+    },
+    {
+      "disabled": false,
+      "route": "/tasks",
+      "header": {
+        "title": "",
+        "icon": ""
+      },
+      "columns": [
+        {
+          "title": "",
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "type": "stackColumn",
+          "transformer": "",
+          "ds": "",
+          "_enableGridColumns": false,
+          "stack": [
+            {
+              "type": "table",
+              "cardHeight": 95,
+              "select": [],
+              "ds": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Today's Task FA Storage",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "FaStorage",
+                "params": {
+                  "defaultDate": "00/00/0000",
+                  "date": "00/00/0000",
+                  "secondsToTime": false,
+                  "_useDateIndex": true,
+                  "dateIndex": 7,
+                  "_useType": false,
+                  "filterByCurrentDay": true,
+                  "_enableValueFilter": false,
+                  "_useExcludeUnits": false,
+                  "combineUnits": false,
+                  "_useColumns": false,
+                  "columns": [
+                    1,
+                    2,
+                    3,
+                    6,
+                    7,
+                    8,
+                    18,
+                    22
+                  ],
+                  "key": "daily_schedule",
+                  "skipHeader": true,
+                  "filterBy": {},
+                  "parse": false
+                },
+                "_copyJson": true,
+                "_submitPortal": true,
+                "method": "getFileData"
+              },
+              "title": "Today's Task",
+              "colSpan": 1,
+              "images": [
+                {
+                  "src": ""
+                }
+              ],
+              "_customBackgroundColor": false,
+              "_customTextColor": false,
+              "_customTitleBackgroundColor": false,
+              "_customTitleTextColor": false,
+              "transformer": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Today's Tasks FA Storage",
+                "id": "FaStorageTransformer",
+                "method": "getTable",
+                "params": {
+                  "_enableCustomHeaders": true,
+                  "headers": [
+                    "Name",
+                    "Task Type",
+                    "Instructions",
+                    "Task Status",
+                    "Due Date",
+                    "Start Date",
+                    "Shift Name",
+                    "Unit Name"
+                  ]
+                },
+                "_enableDecorators": false,
+                "_enableUpdaters": false,
+                "_enableFilters": false
+              },
+              "_enableGridColumns": false,
+              "_customTableSpan": true,
+              "_enableRowStatus": false,
+              "tableSpan": [
+                6,
+                3,
+                4,
+                3,
+                2,
+                2,
+                2,
+                2
+              ],
+              "preWrap1": false,
+              "_openTransformerForm": false,
+              "_openDsForm": false,
+              "_useContentFontSize": false,
+              "_useCardFontSize": false,
+              "_useAlignHeaderRow1": false,
+              "alignHeaderRow1": "",
+              "_useRefreshTtl": false,
+              "_useEvenOddColors1": false,
+              "_useCardBackgroundColor": false,
+              "_useCardTextColor": false,
+              "_useSlideDuration": false,
+              "props": {},
+              "refreshTtl": {},
+              "evenOddColors": {},
+              "rowStatus": [
+                {
+                  "color": "",
+                  "text": ""
+                }
+              ],
+              "mapProps": {
+                "imageLayers": [
+                  {}
+                ],
+                "center": {}
+              }
+            },
+            {
+              "title": "Today's Events",
+              "colSpan": 1,
+              "cardHeight": 70,
+              "images": [
+                {
+                  "src": ""
+                }
+              ],
+              "_customBackgroundColor": false,
+              "_customTextColor": false,
+              "_customTitleBackgroundColor": false,
+              "_customTitleTextColor": false,
+              "type": "table",
+              "transformer": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Today's Events FA Storage",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "FaStorageTransformer",
+                "params": {
+                  "_enableCustomHeaders": true,
+                  "headers": [
+                    "Name",
+                    "Event Status",
+                    "Start Date",
+                    "End Date",
+                    "Address Name"
+                  ]
+                },
+                "_enableDecorators": false,
+                "_enableUpdaters": false,
+                "_enableFilters": false,
+                "_copyJson": false,
+                "_submitPortal": true,
+                "method": "getTable"
+              },
+              "ds": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Events Today's FA storage (Sort)",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "FaStorage",
+                "params": {
+                  "defaultDate": "00/00/0000",
+                  "date": "00/00/0000",
+                  "secondsToTime": false,
+                  "_useDateIndex": true,
+                  "_useType": false,
+                  "filterByCurrentDay": true,
+                  "_enableValueFilter": false,
+                  "_useExcludeUnits": false,
+                  "combineUnits": false,
+                  "_useColumns": true,
+                  "columns": [
+                    1,
+                    3,
+                    4,
+                    5,
+                    7
+                  ],
+                  "sortColumn": 3,
+                  "key": "events",
+                  "skipHeader": true,
+                  "filterBy": {},
+                  "parse": false,
+                  "dateIndex": 4
+                },
+                "_copyJson": false,
+                "_submitPortal": true,
+                "method": "getFileData"
+              },
+              "_enableGridColumns": false,
+              "_customTableSpan": true,
+              "_enableRowStatus": false,
+              "tableSpan": [
+                8,
+                4,
+                3,
+                3,
+                6
+              ],
+              "preWrap1": false,
+              "_openTransformerForm": true,
+              "_openDsForm": true,
+              "_useContentFontSize": false,
+              "_useCardFontSize": false,
+              "_useAlignHeaderRow1": false,
+              "alignHeaderRow1": "",
+              "_useRefreshTtl": false,
+              "_useEvenOddColors1": false,
+              "_useCardBackgroundColor": false,
+              "_useCardTextColor": false,
+              "_useSlideDuration": false,
+              "refreshTtl": {},
+              "evenOddColors": {},
+              "props": {},
+              "rowStatus": [
+                {
+                  "color": "",
+                  "text": ""
+                }
+              ],
+              "mapProps": {
+                "imageLayers": [
+                  {}
+                ],
+                "center": {}
+              }
+            }
+          ],
+          "_openTransformerForm": false,
+          "_openDsForm": false,
+          "shiftBanner": false,
+          "colSpan": 1,
+          "_useContentFontSize": false,
+          "_useRefreshTtl": false,
+          "_useSlideDuration": false,
+          "name": ""
+        }
+      ],
+      "_copyJson": false,
+      "_submit": true
+    },
+    {
+      "route": "/inspection1",
+      "header": {
+        "title": "",
+        "icon": ""
+      },
+      "columns": [
+        {
+          "type": "table",
+          "select": [],
+          "ds": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - Inspections Table (ALL Status) (1)",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "FaStorage",
+            "params": {
+              "_enableValueFilter": false,
+              "columns": [
+                0,
+                1,
+                2,
+                3,
+                5,
+                20,
+                21,
+                22
+              ],
+              "key": "inspections",
+              "skipHeader": true,
+              "filterBy": {},
+              "parse": false,
+              "filterByCurrentDay": true,
+              "_useColumns": false,
+              "sortColumn": 7
+            },
+            "_copyJson": false,
+            "_submitPortal": true,
+            "method": "getFileData"
+          },
+          "title": "Inspections All Status - Filter by Current Day",
+          "colSpan": 1,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "transformer": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - Inspection table (3)",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "FaStorageTransformer",
+            "params": {
+              "_enableCustomHeaders": true,
+              "headers": [
+                " Property Name",
+                "Building Name",
+                "Occupant Name",
+                "Inspection Status",
+                "Lead Inspector Last Name",
+                "Inspection District",
+                "Received Date",
+                "Scheduled Date"
+              ]
+            },
+            "_enableDecorators": false,
+            "_enableUpdaters": false,
+            "_enableFilters": true,
+            "_copyJson": true,
+            "_submitPortal": true,
+            "method": "getTable",
+            "filters": [
+              {
+                "id": "DateFilter",
+                "method": "matchesDayOfWeek",
+                "params": {
+                  "columns": [
+                    ""
+                  ],
+                  "_selectorType": "key",
+                  "column": "",
+                  "granularity": "day",
+                  "ignoreYear": false,
+                  "daysFromToday": 0,
+                  "key": "Scheduled Date"
+                }
+              }
+            ]
+          },
+          "_enableGridColumns": false,
+          "_customTableSpan": true,
+          "_enableRowStatus": false,
+          "tableSpan": [
+            4,
+            4,
+            4,
+            2,
+            2,
+            2,
+            3,
+            3
+          ],
+          "_openTransformerForm": true,
+          "_openDsForm": false,
+          "shiftBanner": false,
+          "_useHeaderRowColor": false,
+          "_useContentFontSize": false,
+          "_useCardFontSize": false,
+          "_useAlignHeaderRow": false,
+          "alignHeaderRow": "",
+          "_useCardHeight": false,
+          "_useCustomNoDataMessage": false,
+          "_useRefreshTtl": false,
+          "_useEvenOddColors": false,
+          "resultTextColor": "",
+          "_useCardBackgroundColor": false,
+          "_useCardTextColor": false,
+          "_useSlideDuration": false
+        }
+      ],
+      "disabled": false
+    },
+    {
+      "route": "/inspection2",
+      "header": {
+        "title": "",
+        "icon": ""
+      },
+      "columns": [
+        {
+          "type": "table",
+          "select": [],
+          "ds": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - Inspections Table (Exclude Locked Status) (3)",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "FaStorage",
+            "params": {
+              "filterBy": {},
+              "_enableValueFilter": true,
+              "columns": [
+                0,
+                1,
+                2,
+                3,
+                5,
+                20,
+                21,
+                22
+              ],
+              "key": "inspections",
+              "skipHeader": true,
+              "parse": false,
+              "valueFilters": [
+                {
+                  "value": "InProgress",
+                  "column": 3
+                },
+                {
+                  "value": "Cancelled",
+                  "column": 3
+                },
+                {
+                  "value": "Scheduled",
+                  "column": 3
+                }
+              ],
+              "sortColumn": 7
+            },
+            "_copyJson": true,
+            "_submitPortal": true,
+            "method": "getFileData"
+          },
+          "title": "Inspections Exclude Locked Status",
+          "colSpan": 1,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "transformer": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - Inspection table (exclude Locked) (1)",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "FaStorageTransformer",
+            "params": {
+              "_enableCustomHeaders": true,
+              "headers": [
+                " Property Name",
+                "Building Name",
+                "Occupant Name",
+                "Inspection Status",
+                "Lead Inspector Last Name",
+                "Inspection District",
+                "Received Date",
+                "Scheduled Date"
+              ]
+            },
+            "_enableDecorators": false,
+            "_enableUpdaters": false,
+            "_enableFilters": false,
+            "_copyJson": false,
+            "_submitPortal": true,
+            "method": "getTable"
+          },
+          "_enableGridColumns": false,
+          "_customTableSpan": true,
+          "_enableRowStatus": false,
+          "tableSpan": [
+            4,
+            4,
+            4,
+            2,
+            2,
+            2,
+            3,
+            3
+          ],
+          "_openTransformerForm": false,
+          "_openDsForm": false,
+          "shiftBanner": false,
+          "_useHeaderRowColor": false,
+          "_useContentFontSize": false,
+          "_useCardFontSize": false,
+          "_useAlignHeaderRow": false,
+          "alignHeaderRow": "",
+          "_useCardHeight": false,
+          "_useCustomNoDataMessage": false,
+          "_useRefreshTtl": false,
+          "_useEvenOddColors": false,
+          "resultTextColor": "",
+          "_useCardBackgroundColor": false,
+          "_useCardTextColor": false,
+          "_useSlideDuration": false
+        }
+      ],
+      "disabled": false
+    },
+    {
+      "route": "/pass",
+      "header": {
+        "title": "",
+        "icon": ""
+      },
+      "columns": [
+        {
+          "title": "STFR Daily Pass On and Roll Call Notes - Admin",
+          "colSpan": 1,
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "type": "table",
+          "transformer": {
+            "_name": "Seminole Tribe (FL) Fire Rescue -  FA Storage Daily Pass Along SFTR",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "FaStorageTransformer",
+            "params": {
+              "_enableCustomHeaders": true,
+              "headers": [
+                "Stations",
+                "Unit",
+                "Modify By",
+                "Modified Date/Time",
+                "Details"
+              ]
+            },
+            "_enableDecorators": false,
+            "_enableUpdaters": false,
+            "_enableFilters": false,
+            "_copyJson": false,
+            "_submitPortal": true,
+            "method": "getTable"
+          },
+          "_openTransformerForm": true,
+          "ds": {
+            "_id": "664672fd892ebb277f090ab6",
+            "_name": "Seminole Tribe (FL) Fire Rescue -  FA Storage Daily Pass Along SFTR (Admin Station)",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "FaStorage",
+            "method": "getFileData",
+            "params": {
+              "secondsToTime": false,
+              "_useDateIndex": false,
+              "_useType": false,
+              "filterByCurrentDay": false,
+              "_enableValueFilter": true,
+              "valueFilters": [
+                {
+                  "value": "["108 - HW"]",
+                  "column": 0
+                }
+              ],
+              "_useExcludeUnits": false,
+              "combineUnits": false,
+              "_useColumns": false,
+              "key": "daily_passon",
+              "skipHeader": true,
+              "defaultDate": "00/00/0000",
+              "columns": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "sortColumn": 3,
+              "date": "00/00/0000",
+              "filterBy": {}
+            },
+            "_copyJson": true,
+            "_submitPortal": true
+          },
+          "_openDsForm": true,
+          "_enableGridColumns": false,
+          "shiftBanner": false,
+          "_customTableSpan": true,
+          "_enableRowStatus": false,
+          "tableSpan": [
+            3,
+            3,
+            3,
+            3,
+            12
+          ],
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_useHeaderRowColor": false,
+          "_useContentFontSize": false,
+          "_useCardFontSize": false,
+          "_useAlignHeaderRow": false,
+          "alignHeaderRow": "",
+          "_useCardHeight": false,
+          "_useCustomNoDataMessage": false,
+          "_useRefreshTtl": false,
+          "_useEvenOddColors": false,
+          "resultTextColor": "",
+          "_useCardBackgroundColor": false,
+          "_useCardTextColor": false,
+          "_useSlideDuration": false
+        }
+      ],
+      "disabled": false
+    },
+    {
+      "disabled": false,
+      "route": "/narc",
+      "header": {
+        "title": "NarcBox",
+        "icon": ""
+      },
+      "columns": [
+        {
+          "title": "",
+          "colSpan": 1,
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "type": "stackColumn",
+          "transformer": "",
+          "_openTransformerForm": false,
+          "ds": {},
+          "_openDsForm": false,
+          "_enableGridColumns": false,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_useRefreshTtl": false,
+          "shiftBanner": false,
+          "_useSlideDuration": false,
+          "stack": [
+            {
+              "colSpan": 1,
+              "_customBackgroundColor": false,
+              "type": "table",
+              "_enableGridColumns": false,
+              "title": "Boxes",
+              "_customTextColor": false,
+              "_customTitleBackgroundColor": false,
+              "_customTitleTextColor": false,
+              "_useContentFontSize": false,
+              "_useRefreshTtl": false,
+              "_useSlideDuration": false,
+              "_useEvenOddColors1": false,
+              "_useAlignHeaderRow1": false,
+              "alignHeaderRow1": "",
+              "_customTableSpan": true,
+              "_useCardBackgroundColor": false,
+              "_useCardTextColor": false,
+              "_useCardFontSize": false,
+              "transformer": {
+                "_name": "Seminole Tribe (FL) Fire Rescue NarcBox getBoxes",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "NarcboxTransformer",
+                "params": {
+                  "_useCustomHeaders": true,
+                  "customHeaders": [
+                    "Serial",
+                    "Station",
+                    "Vehicle",
+                    "Last Sync",
+                    "Firmware",
+                    "S.Mode",
+                    "Last Temp",
+                    "Last Temp Time",
+                    "Pouch",
+                    "Medic"
+                  ]
+                },
+                "_enableDecorators": false,
+                "_enableUpdaters": false,
+                "_enableFilters": false,
+                "_copyJson": false,
+                "_submitPortal": true,
+                "method": "getBoxes"
+              },
+              "_openTransformerForm": false,
+              "ds": {
+                "_name": "Seminole Tribe (FL) Fire Rescue NarcBox getEvents",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "Narcbox",
+                "params": {},
+                "_copyJson": false,
+                "_submitPortal": true,
+                "method": "getEvents"
+              },
+              "_openDsForm": false,
+              "props": {
+                "_enableWeeksOption": false,
+                "rollingCalendar": false,
+                "transparent": false,
+                "_enableCardType": false
+              },
+              "_enableRowStatus": false,
+              "tableSpan": [
+                2,
+                3,
+                2,
+                4,
+                2,
+                2,
+                2,
+                2,
+                3,
+                2
+              ],
+              "refreshTtl": {},
+              "evenOddColors": {},
+              "images": [
+                {
+                  "src": "",
+                  "text": "",
+                  "overrideTitle": "",
+                  "bgImageColor": "",
+                  "_useBackgroundImageColor": false
+                }
+              ],
+              "rowStatus": [
+                {
+                  "color": "",
+                  "text": ""
+                }
+              ],
+              "mapProps": {
+                "imageLayers": [
+                  {}
+                ],
+                "center": {}
+              }
+            },
+            {
+              "_useRefreshTtl": false,
+              "colSpan": 1,
+              "title": "HQ & Lockers",
+              "_customBackgroundColor": false,
+              "_customTextColor": false,
+              "_customTitleBackgroundColor": false,
+              "_customTitleTextColor": false,
+              "_useSlideDuration": false,
+              "type": "table",
+              "transformer": {
+                "_name": "Seminole Tribe (FL) Fire Rescue NarcBox getLockers",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "NarcboxTransformer",
+                "params": {
+                  "_useCustomHeaders": true,
+                  "customHeaders": [
+                    "Serial",
+                    "Station",
+                    "Vehicle",
+                    "Last Sync",
+                    "Firmware",
+                    "S.Mode",
+                    "Actions"
+                  ]
+                },
+                "_enableDecorators": false,
+                "_enableUpdaters": false,
+                "_enableFilters": false,
+                "_copyJson": false,
+                "_submitPortal": true,
+                "method": "getLockers"
+              },
+              "_openTransformerForm": false,
+              "ds": {
+                "_name": "Seminole Tribe (FL) Fire Rescue NarcBox getEvents",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "Narcbox",
+                "params": {},
+                "_copyJson": false,
+                "_submitPortal": true,
+                "method": "getEvents"
+              },
+              "_openDsForm": false,
+              "_enableGridColumns": false,
+              "_useEvenOddColors1": false,
+              "_useAlignHeaderRow1": false,
+              "alignHeaderRow1": "",
+              "_customTableSpan": true,
+              "_useCardBackgroundColor": false,
+              "_useCardTextColor": false,
+              "_useCardFontSize": false,
+              "props": {
+                "_enableWeeksOption": false,
+                "rollingCalendar": false,
+                "transparent": false,
+                "_enableCardType": false
+              },
+              "_enableRowStatus": false,
+              "tableSpan": [
+                2,
+                3,
+                2,
+                4,
+                2,
+                2,
+                9
+              ],
+              "images": [
+                {
+                  "src": "",
+                  "text": "",
+                  "overrideTitle": "",
+                  "bgImageColor": "",
+                  "_useBackgroundImageColor": false
+                }
+              ],
+              "refreshTtl": {},
+              "evenOddColors": {},
+              "rowStatus": [
+                {
+                  "color": "",
+                  "text": ""
+                }
+              ],
+              "mapProps": {
+                "imageLayers": [
+                  {}
+                ],
+                "center": {}
+              }
+            }
+          ]
+        },
+        {
+          "title": "Pouches",
+          "_useRefreshTtl": false,
+          "colSpan": 0.4,
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "shiftBanner": false,
+          "_customTitleTextColor": false,
+          "_useSlideDuration": false,
+          "type": "table",
+          "transformer": {
+            "_name": "Seminole Tribe (FL) Fire Rescue NarcBox getPouches",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "NarcboxTransformer",
+            "params": {
+              "_useCustomHeaders": true,
+              "customHeaders": [
+                "Name",
+                "Location"
+              ]
+            },
+            "_enableDecorators": false,
+            "_enableUpdaters": false,
+            "_enableFilters": false,
+            "_copyJson": false,
+            "_submitPortal": true,
+            "method": "getPouches"
+          },
+          "_openTransformerForm": false,
+          "ds": {
+            "_name": "Seminole Tribe (FL) Fire Rescue NarcBox getEvents",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "Narcbox",
+            "params": {},
+            "_copyJson": false,
+            "_submitPortal": true,
+            "method": "getEvents"
+          },
+          "_openDsForm": false,
+          "_enableGridColumns": false,
+          "resultTextColor": "",
+          "_useEvenOddColors": false,
+          "_useAlignHeaderRow": false,
+          "alignHeaderRow": "",
+          "_customTableSpan": true,
+          "_useCardBackgroundColor": false,
+          "_useCardTextColor": false,
+          "_useHeaderRowColor": false,
+          "_useCardFontSize": false,
+          "_useCardHeight": false,
+          "_useCustomNoDataMessage": false,
+          "props": {
+            "_enableWeeksOption": false,
+            "rollingCalendar": false,
+            "transparent": false,
+            "_enableCardType": false
+          },
+          "_enableRowStatus": false,
+          "tableSpan": [
+            12,
+            12
+          ]
+        }
+      ],
+      "_copyJson": false,
+      "_submit": true
+    },
+    {
+      "disabled": true,
+      "route": "/target",
+      "header": {
+        "title": "",
+        "icon": ""
+      },
+      "columns": [
+        {
+          "title": "Incomplete assignments",
+          "colSpan": 1,
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "_customTitleTextColor": false,
+          "type": "table",
+          "transformer": {
+            "_name": "Generic Target Solutions Incomplete Assignments 90 Days",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "TargetSolutionsTransformer",
+            "params": {
+              "_enableSort": false
+            },
+            "_enableDecorators": false,
+            "_enableUpdaters": false,
+            "_enableFilters": true,
+            "_copyJson": false,
+            "_submitPortal": true,
+            "method": "getIncompleteAssignmentsTable",
+            "filters": [
+              {
+                "id": "DateFilter",
+                "method": "before",
+                "params": {
+                  "columns": [
+                    ""
+                  ],
+                  "_selectorType": "key",
+                  "key": "due_date",
+                  "granularity": "day",
+                  "ignoreYear": false,
+                  "daysFromToday": -90,
+                  "column": ""
+                }
+              }
+            ]
+          },
+          "_openTransformerForm": false,
+          "ds": {
+            "_name": "Seminole Tribe (FL) Fire Rescue - Incomplete Assignments",
+            "_pasteJson": "",
+            "_setJson": false,
+            "id": "TargetSolutions",
+            "params": {
+              "date": "00/00/0000",
+              "account": "main",
+              "_enableExcludeGroups": false,
+              "_enableIncludeGroups": true,
+              "includeGroups": [
+                {
+                  "categoryId": "currentShift",
+                  "groupId": "currentShift"
+                },
+                {
+                  "categoryId": "25564",
+                  "groupId": "493091"
+                }
+              ],
+              "shiftGroups": [
+                {
+                  "categoryId": "25565",
+                  "groupId": "493092"
+                },
+                {
+                  "categoryId": "25565",
+                  "groupId": "493093"
+                },
+                {
+                  "categoryId": "25565",
+                  "groupId": "493089"
+                },
+                {
+                  "categoryId": "25565",
+                  "groupId": "493094"
+                }
+              ],
+              "shiftRotationStart": "2024-01-06 08:00",
+              "site": "28529",
+              "inAllGroups": true,
+              "timeFormat": "MMMM, DD YYYY HH:mm:ss",
+              "_enableIncludeCustomGroups": false,
+              "filterBy": {},
+              "parse": false
+            },
+            "_copyJson": false,
+            "_submitPortal": true,
+            "method": "getIncompleteAssignments"
+          },
+          "_openDsForm": true,
+          "_enableGridColumns": false,
+          "images": [
+            {
+              "src": ""
+            }
+          ],
+          "_useRefreshTtl": false,
+          "shiftBanner": false,
+          "_useSlideDuration": false,
+          "resultTextColor": "",
+          "_useEvenOddColors": false,
+          "_useAlignHeaderRow": false,
+          "alignHeaderRow": "",
+          "_customTableSpan": true,
+          "_useCardBackgroundColor": false,
+          "_useCardTextColor": false,
+          "_useHeaderRowColor": false,
+          "_useCardFontSize": false,
+          "_useCardHeight": false,
+          "_useCustomNoDataMessage": false,
+          "props": {},
+          "_enableRowStatus": false,
+          "tableSpan": [
+            6,
+            10,
+            6,
+            2
+          ]
+        },
+        {
+          "title": "",
+          "_useRefreshTtl": false,
+          "colSpan": 1,
+          "_customBackgroundColor": false,
+          "_customTextColor": false,
+          "_customTitleBackgroundColor": false,
+          "shiftBanner": false,
+          "_customTitleTextColor": false,
+          "_useSlideDuration": false,
+          "type": "stackColumn",
+          "transformer": "",
+          "_openTransformerForm": false,
+          "ds": {},
+          "_openDsForm": false,
+          "_enableGridColumns": false,
+          "stack": [
+            {
+              "colSpan": 1,
+              "_customBackgroundColor": false,
+              "type": "table",
+              "_enableGridColumns": false,
+              "title": "Credentials expiring",
+              "_customTextColor": false,
+              "_customTitleBackgroundColor": false,
+              "_customTitleTextColor": false,
+              "_useContentFontSize": false,
+              "_useRefreshTtl": false,
+              "_useSlideDuration": false,
+              "_useEvenOddColors1": false,
+              "_useAlignHeaderRow1": false,
+              "alignHeaderRow1": "",
+              "_customTableSpan": true,
+              "_useCardBackgroundColor": false,
+              "_useCardTextColor": false,
+              "_useHeaderRowColor": false,
+              "_useCardFontSize": false,
+              "transformer": {
+                "_name": "Generic Target Solutions Credentials",
+                "id": "TargetSolutionsTransformer",
+                "method": "getCredentialsTable",
+                "params": {
+                  "redDays": 7,
+                  "yellowDays": 15,
+                  "_enableSort": false
+                },
+                "_enableDecorators": false,
+                "_enableUpdaters": false,
+                "_enableFilters": false
+              },
+              "_openTransformerForm": false,
+              "ds": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Certificate Expiring",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "TargetSolutions",
+                "params": {
+                  "date": "00/00/0000",
+                  "account": "main",
+                  "_enableExcludeGroups": false,
+                  "_enableIncludeGroups": true,
+                  "includeGroups": [
+                    {
+                      "categoryId": "currentShift",
+                      "groupId": "currentShift"
+                    },
+                    {
+                      "categoryId": "25564",
+                      "groupId": "493091"
+                    }
+                  ],
+                  "shiftGroups": [
+                    {
+                      "categoryId": "25565",
+                      "groupId": "493092"
+                    },
+                    {
+                      "categoryId": "25565",
+                      "groupId": "493093"
+                    },
+                    {
+                      "categoryId": "25565",
+                      "groupId": "493089"
+                    },
+                    {
+                      "categoryId": "25565",
+                      "groupId": "493094"
+                    }
+                  ],
+                  "shiftRotationStart": "2024-01-06T13:00:00.000Z",
+                  "renewalDays": 90,
+                  "showExpired": true,
+                  "monthsLimit": 0,
+                  "site": "28529",
+                  "inAllGroups": true,
+                  "_enableIncludeCustomGroups": false,
+                  "daysInAdvance": 30,
+                  "filterBy": {},
+                  "parse": false
+                },
+                "_copyJson": false,
+                "_submitPortal": true,
+                "method": "getCredentialsData"
+              },
+              "_openDsForm": true,
+              "props": {},
+              "_enableRowStatus": false,
+              "tableSpan": [
+                6,
+                10,
+                6,
+                2
+              ],
+              "images": [
+                {
+                  "src": "",
+                  "text": "",
+                  "overrideTitle": "",
+                  "bgImageColor": "",
+                  "_useBackgroundImageColor": false
+                }
+              ]
+            },
+            {
+              "_useRefreshTtl": false,
+              "colSpan": 1,
+              "title": "Upcoming courses",
+              "_customBackgroundColor": false,
+              "_customTextColor": false,
+              "_customTitleBackgroundColor": false,
+              "_customTitleTextColor": false,
+              "_useSlideDuration": false,
+              "type": "table",
+              "transformer": {
+                "_name": "Generic Target Solutions Upcoming Training Remove Duplicates",
+                "id": "TargetSolutionsTransformer",
+                "method": "getUpcomingTrainingTable",
+                "params": {
+                  "removeDuplicates": true,
+                  "_enableSort": false
+                },
+                "_enableDecorators": false,
+                "_enableUpdaters": false,
+                "_enableFilters": false
+              },
+              "_openTransformerForm": false,
+              "ds": {
+                "_name": "Seminole Tribe (FL) Fire Rescue - Upcoming Course",
+                "_pasteJson": "",
+                "_setJson": false,
+                "id": "TargetSolutions",
+                "params": {
+                  "date": "00/00/0000",
+                  "account": "main",
+                  "_enableExcludeGroups": false,
+                  "_enableIncludeGroups": true,
+                  "includeGroups": [
+                    {
+                      "categoryId": "currentShift",
+                      "groupId": "currentShift"
+                    },
+                    {
+                      "categoryId": "25564",
+                      "groupId": "493091"
+                    }
+                  ],
+                  "shiftGroups": [
+                    {
+                      "categoryId": "25565",
+                      "groupId": "493092"
+                    },
+                    {
+                      "categoryId": "25565",
+                      "groupId": "493093"
+                    },
+                    {
+                      "categoryId": "25565",
+                      "groupId": "493089"
+                    },
+                    {
+                      "categoryId": "25565",
+                      "groupId": "493094"
+                    }
+                  ],
+                  "shiftRotationStart": "2024-01-06T13:00:00.000Z",
+                  "site": "28529",
+                  "inAllGroups": true,
+                  "showDateless": false,
+                  "removeDuplicates": true,
+                  "overdueDays": 60,
+                  "timeFormat": "MMMM, DD YYYY HH:mm:ss",
+                  "_enableIncludeCustomGroups": false,
+                  "daysInAdvance": 30,
+                  "filterBy": {},
+                  "parse": false,
+                  "_useExcludeCourses": false
+                },
+                "_copyJson": false,
+                "_submitPortal": true,
+                "method": "getUpcomingTraining"
+              },
+              "_openDsForm": false,
+              "_enableGridColumns": false,
+              "_useEvenOddColors1": false,
+              "_useAlignHeaderRow1": false,
+              "alignHeaderRow1": "",
+              "_customTableSpan": true,
+              "_useCardBackgroundColor": false,
+              "_useCardTextColor": false,
+              "_useHeaderRowColor": false,
+              "_useCardFontSize": false,
+              "props": {},
+              "_enableRowStatus": false,
+              "tableSpan": [
+                16,
+                8
+              ],
+              "images": [
+                {
+                  "src": "",
+                  "text": "",
+                  "overrideTitle": "",
+                  "bgImageColor": "",
+                  "_useBackgroundImageColor": false
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "_copyJson": false,
+      "_submit": true
+    }
+  ],
+  "_openPageForm": false,
+  "ticker": {
+    "type": "default",
+    "background": "",
+    "text": "",
+    "_enableDs": false,
+    "_useTransformer": false,
+    "_openDsForm": false
+  },
+  "_copyJson": true,
+  "_previewDashboardProduction": true,
+  "_previewDashboardCanada": false,
+  "_previewDashboardStaging": false,
+  "_previewDashboardMobileProduction": false,
+  "_previewDashboardMobileStaging": false,
+  "_openDashboardProduction": false,
+  "_openDashboardStaging": false,
+  "_submitPortal": true,
+  "contentFontSize": "",
+  "_configDirectory": "seminole-tribe-fl-firescue",
+  "_configFile": "seminole-tribe-fl-firescue-admin",
+  "messages": {
+    "ds": {
+      "_name": "Seminole Tribe (FL) Fire Rescue - FA Message",
+      "id": "FaMessages",
+      "method": "init",
+      "params": {
+        "account": "main",
+        "filterBy": {},
+        "agencyId": 1231,
+        "parse": false
+      }
+    },
+    "_openDsForm": false,
+    "props": {
+      "audio": ""
+    }
+  },
+  "videos": {
+    "ds": {
+      "_name": "Seminole Tribe (FL) Fire Rescue - FA Video",
+      "id": "FaVideos",
+      "method": "init",
+      "params": {
+        "filterBy": {},
+        "agencyId": 1231,
+        "parse": false
+      }
+    },
+    "_openDsForm": false
+  },
+  "alarms": [
+    {
+      "type": "fullscreen",
+      "ds": {
+        "_name": "Seminole Tribe - Tablet Command",
+        "_pasteJson": "",
+        "_setJson": false,
+        "id": "TabletCommandAlarms",
+        "params": {
+          "date": "00/00/0000",
+          "includeCity": false,
+          "duration": {
+            "_unit": "minutes",
+            "minutes": 2
+          },
+          "_useTimeFilter": false,
+          "_filterUnits": false
+        },
+        "_copyJson": false,
+        "_submitPortal": true,
+        "method": "init",
+        "alarmAudio": "",
+        "_enableMaps": true,
+        "maps": {
+          "directions": "fullHeight"
+        },
+        "_enableMapLayers": false,
+        "pointBaseMap": "",
+        "directionsBaseMap": "hybrid",
+        "pointMapZoom": 14
+      },
+      "streetViewProvider": {
+        "ds": {}
+      },
+      "_disableTransformer": true,
+      "_useStreetViewProvider": false,
+      "_useDescriptionEllipsis": false,
+      "_useUnitLabelFontSize": false,
+      "_useResponderLabelFontSize": false
+    }
+  ],
+  "_openDashboard": false,
+  "_openDashboardProd": true,
+  "_openMobileDashboardStaging": false,
+  "_openMobileDashboardProd": false,
+  "_openDashboardProd1": false,
+  "_id": "65ea1bcef576104bf81a460c",
+  "_selectSubmission": {},
+  "_loadSubmission": false,
+  "_selectSubmissionPortal": {},
+  "_loadSubmissionPortal": false,
+  "_postPr": true,
+  "_submit": true,
+  "_submitTemp": false,
+  "_openProductionConfigFile": false,
+  "_openProductionConfigFile1": false,
+  "_openDsForm": false,
+  "_openTransformerForm": true,
+  "refreshOnRotationEnd": false
+}
