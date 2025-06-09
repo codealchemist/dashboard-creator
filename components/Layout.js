@@ -2,7 +2,8 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState, useEffect } from 'react'; // Import useState and useEffect
+import React, { useState, useEffect, useCallback } from 'react'; // Import useCallback
+import { useSettings } from '../context/SettingsContext'; // Import useSettings
 
 const LayoutContainer = styled.div`
   display: flex;
@@ -40,6 +41,7 @@ const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  flex-grow: 1; /* Allow Nav to take available space, pushing button down if it's a sibling */
 `;
 
 const NavLink = styled(Link)`
@@ -64,6 +66,30 @@ const NavLink = styled(Link)`
   }
 `;
 
+// Styled button for actions like "Export Dashboard"
+const SidebarButton = styled.button`
+  display: block;
+  width: 100%; /* Make button take full width of its container */
+  color: ${({ theme }) => theme.colors.sidebarText};
+  text-decoration: none;
+  padding: 14px 20px;
+  font-size: 1.05em;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.1s ease;
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  border: none; // Remove default button border
+  text-align: left; // Align text to the left like NavLink
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.sidebarHoverBg};
+    color: #ffffff;
+    transform: translateX(3px);
+  }
+`;
+
 const menuItems = [
   { name: 'Home', path: '/' },
   { name: 'Settings', path: '/settings' },
@@ -79,10 +105,54 @@ const menuItems = [
 const Layout = ({ children }) => {
   const router = useRouter();
   const [hasMounted, setHasMounted] = useState(false);
+  const { settings } = useSettings(); // Get settings from context
 
   useEffect(() => {
     setHasMounted(true);
   }, []);
+
+  const handleExport = useCallback(() => {
+    if (!settings) {
+      console.error("Settings data not available for export.");
+      return;
+    }
+
+    const transformedData = {
+      faDashboardsApi: {
+        user: settings['faDashboardsApi.user'] || "",
+        pass: settings['faDashboardsApi.pass'] || "",
+      },
+      playerUuid: settings.playerUuid || "",
+      address: settings.address || "",
+      city: settings.city || "",
+      state: settings.state || "",
+      country: settings.country || "",
+      geolocation: {
+        lat: settings['geolocation.lat'] || "",
+        lon: settings['geolocation.lon'] || "",
+      },
+      info: {
+        stations: settings['info.stations']
+          ? settings['info.stations'].split(',').map(s => s.trim()).filter(s => s)
+          : [],
+      },
+    };
+
+    const jsonString = JSON.stringify(transformedData, null, 2);
+    const blob = new Blob([jsonString], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'dashboard-config.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    URL.revokeObjectURL(url);
+    console.log('Exporting Dashboard Configuration:', transformedData);
+  }, [settings]);
+
 
   return (
     <LayoutContainer>
@@ -90,13 +160,8 @@ const Layout = ({ children }) => {
         <Logo>Dashboard Creator</Logo>
         <Nav>
           {menuItems.map((item) => {
-            // Calculate isActive based on router.pathname for clarity
             const isActive = router.pathname === item.path;
-
-            // Only apply the $active state if the component has mounted on the client
-            // On the server and initial client render (before useEffect), $active will be effectively false.
             const $activePropValue = hasMounted && isActive;
-
             return (
               <NavLink key={item.name} href={item.path} $active={$activePropValue}>
                 {item.name}
@@ -104,6 +169,16 @@ const Layout = ({ children }) => {
             );
           })}
         </Nav>
+        {/* Spacer div to push the button to the bottom, if Nav doesn't fill space */}
+        {/* Alternatively, make Sidebar a flex column and Nav grow, then place button after Nav */}
+        {/* For now, adding it directly after Nav. If Nav has flex-grow:1, this will be at the bottom of items in Nav or just after it.
+            The Sidebar is display:flex, flex-direction:column. If Nav doesn't have flex-grow, this button will appear right after it.
+            Added flex-grow: 1 to Nav to push this button towards the bottom of the sidebar, assuming there's space after nav items.
+            If not, we might need a wrapper div for Nav and Button, or adjust Sidebar flex properties.
+        */}
+        <SidebarButton onClick={handleExport}>
+          Export Dashboard
+        </SidebarButton>
       </Sidebar>
       <MainContent>{children}</MainContent>
     </LayoutContainer>

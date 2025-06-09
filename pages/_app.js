@@ -1,5 +1,6 @@
 import Layout from '../components/Layout';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { SettingsProvider } from '../context/SettingsContext';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -36,9 +37,11 @@ function MyApp({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <SettingsProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </SettingsProvider>
       </ThemeProvider>
     </>
   );
