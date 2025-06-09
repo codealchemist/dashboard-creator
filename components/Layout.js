@@ -1,6 +1,6 @@
 // components/Layout.js
 import styled from 'styled-components';
-import Link from 'next/link'; // Modern Link
+import Link from 'next/link'; // Import Link
 import { useRouter } from 'next/router';
 
 const LayoutContainer = styled.div`
@@ -41,11 +41,11 @@ const Nav = styled.nav`
   gap: 8px;
 `;
 
-// NavLink is now styled.a
-// The '$active' prop is transient and will not be passed to the DOM element
-const NavLink = styled.a`
+// NavLink is now styled(Link)
+const NavLink = styled(Link)`
+  display: block; /* Ensures proper block behavior for padding, etc. */
   color: ${({ theme, $active }) => ($active ? '#ffffff' : theme.colors.sidebarText)};
-  text-decoration: none; /* Explicitly remove underline from <a> */
+  text-decoration: none;
   padding: 14px 20px;
   font-size: 1.05em;
   font-weight: ${({ $active }) => ($active ? '600' : '500')};
@@ -87,13 +87,12 @@ const Layout = ({ children }) => {
           {menuItems.map((item) => {
             const isActive = router.pathname === item.path;
             return (
-              // Link no longer uses legacyBehavior.
-              // passHref is used to ensure href is passed to the styled.a component.
-              <Link key={item.name} href={item.path} passHref>
-                <NavLink $active={isActive}> {/* Pass isActive as $active */}
-                  {item.name}
-                </NavLink>
-              </Link>
+              // Use NavLink (which is styled(Link)) directly.
+              // href is a required prop for Link.
+              // $active is the transient prop for styling.
+              <NavLink key={item.name} href={item.path} $active={isActive}>
+                {item.name}
+              </NavLink>
             );
           })}
         </Nav>
