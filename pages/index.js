@@ -90,7 +90,8 @@ const HomePage = () => {
     <PageContainer>
       <MainTitle>Dashboard Creator</MainTitle>
       <Subtitle>Our quick lane to onboard customers 🚀</Subtitle>
-      <Link href="/panel" passHref>
+      {/* Updated Link href below */}
+      <Link href="/settings" passHref>
         <CTAButton>Get Started</CTAButton>
       </Link>
       <FeaturesGrid>

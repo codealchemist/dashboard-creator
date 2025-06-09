@@ -1,31 +1,29 @@
-// pages/_app.js
 import Layout from '../components/Layout';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
-    font-family: 'Roboto', sans-serif; /* Using Roboto as a modern font */
+    font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #f4f6f8; /* Light background for the entire app */
+    background-color: #f4f6f8;
   }
   * {
     box-sizing: border-box;
   }
 `;
 
-// Simple theme object
 const theme = {
   colors: {
     primary: '#3498db', // Blue
-    secondary: '#2ecc71', // Green
+    secondary: '#5dade2', // Lighter Blue for accents if needed (was #2ecc71 Green)
     accent: '#e74c3c', // Red
-    background: '#f4f6f8', // Light Grey
+    background: '#f7f9fb', // Even lighter Grey for main background
     text: '#34495e', // Dark Blue-Grey
-    sidebarBg: '#2c3e50', // Dark Blue-Grey for Sidebar
-    sidebarText: '#ecf0f1', // Light Grey for Sidebar text
-    sidebarHoverBg: '#34495e', // Darker Blue-Grey for Sidebar hover
+    sidebarBg: '#283747', // Slightly darker, more saturated blue-grey
+    sidebarText: '#eaeded', // Lighter grey for better contrast
+    sidebarHoverBg: '#34495e', // Existing hover
     sidebarActiveBg: '#1abc9c', // Teal for Sidebar active
   },
   fonts: {
