@@ -69,24 +69,29 @@ const NavLink = styled(Link)`
 // Styled button for actions like "Export Dashboard"
 const SidebarButton = styled.button`
   display: block;
-  width: 100%; /* Make button take full width of its container */
-  color: ${({ theme }) => theme.colors.sidebarText};
+  width: 100%;
+  color: #ffffff; // White text for better contrast on primary color
+  background-color: ${({ theme }) => theme.colors.primary}; // Use theme primary color
   text-decoration: none;
   padding: 14px 20px;
   font-size: 1.05em;
-  font-weight: 500;
+  font-weight: 600; // Slightly bolder for emphasis
   border-radius: 6px;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.1s ease;
-  position: relative;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
   cursor: pointer;
-  background-color: transparent;
-  border: none; // Remove default button border
-  text-align: left; // Align text to the left like NavLink
+  border: none;
+  text-align: center; // Center text for a button look
+  margin-top: 15px; // Add margin for separation from NavLink items
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.sidebarHoverBg};
+    background-color: ${({ theme }) => theme.colors.accent}; // Use accent color on hover, or a darker primary
     color: #ffffff;
-    transform: translateX(3px);
+    transform: translateY(-1px); // Slight lift effect
+  }
+
+  &:active {
+    background-color: ${({ theme }) => theme.colors.accent}; // Darker shade for active state
+    transform: translateY(0px); // Reset lift effect
   }
 `;
 

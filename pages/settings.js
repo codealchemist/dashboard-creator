@@ -91,23 +91,12 @@ const SettingsPage = () => {
     updateSettingField(name, value); // Update context state
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Data is already in context. This function can be used for feedback or other actions.
-    console.log('Settings saved (already in context):', currentSettings);
-    // Example of processing stations for logging, similar to before:
-    const processedStations = currentSettings['info.stations']
-      .split(',')
-      .map(s => s.trim())
-      .filter(s => s);
-    console.log('Processed stations for logging:', processedStations);
-    // alert('Settings saved!'); // Optional: provide user feedback
-  };
+  // handleSubmit is removed as the button is removed and settings are saved on change.
 
   return (
     <PageContainer>
       <Title>Settings</Title>
-      <Form onSubmit={handleSubmit}>
+      <Form> {/* onSubmit={handleSubmit} removed */}
         <FormGroup>
           <Label htmlFor="faDashboardsApi.user">FA Dashboards API User</Label>
           <Input
@@ -219,7 +208,7 @@ const SettingsPage = () => {
           />
         </FormGroup>
 
-        <Button type="submit">Save Settings</Button>
+        {/* <Button type="submit">Save Settings</Button> removed */}
       </Form>
     </PageContainer>
   );
