@@ -1,7 +1,8 @@
 // components/Layout.js
 import styled from 'styled-components';
-import Link from 'next/link'; // Import Link
+import Link from 'next/link';
 import { useRouter } from 'next/router';
+import React, { useState, useEffect } from 'react'; // Import useState and useEffect
 
 const LayoutContainer = styled.div`
   display: flex;
@@ -41,9 +42,8 @@ const Nav = styled.nav`
   gap: 8px;
 `;
 
-// NavLink is now styled(Link)
 const NavLink = styled(Link)`
-  display: block; /* Ensures proper block behavior for padding, etc. */
+  display: block;
   color: ${({ theme, $active }) => ($active ? '#ffffff' : theme.colors.sidebarText)};
   text-decoration: none;
   padding: 14px 20px;
@@ -78,6 +78,11 @@ const menuItems = [
 
 const Layout = ({ children }) => {
   const router = useRouter();
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   return (
     <LayoutContainer>
@@ -85,12 +90,15 @@ const Layout = ({ children }) => {
         <Logo>Dashboard Creator</Logo>
         <Nav>
           {menuItems.map((item) => {
+            // Calculate isActive based on router.pathname for clarity
             const isActive = router.pathname === item.path;
+
+            // Only apply the $active state if the component has mounted on the client
+            // On the server and initial client render (before useEffect), $active will be effectively false.
+            const $activePropValue = hasMounted && isActive;
+
             return (
-              // Use NavLink (which is styled(Link)) directly.
-              // href is a required prop for Link.
-              // $active is the transient prop for styling.
-              <NavLink key={item.name} href={item.path} $active={isActive}>
+              <NavLink key={item.name} href={item.path} $active={$activePropValue}>
                 {item.name}
               </NavLink>
             );

@@ -1,6 +1,6 @@
 // pages/index.js
 import styled, { keyframes } from 'styled-components';
-import Link from 'next/link';
+import Link from 'next/link'; // Keep Link import for styled(Link)
 
 const fadeIn = keyframes`
   from {
@@ -18,7 +18,7 @@ const PageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 120px); // Adjust if header/footer height changes
+  min-height: calc(100vh - 120px);
   padding: 40px 20px;
   text-align: center;
   animation: ${fadeIn} 0.8s ease-out;
@@ -33,11 +33,13 @@ const MainTitle = styled.h1`
 
 const Subtitle = styled.p`
   font-size: 1.5em;
-  color: ${({ theme }) => theme.colors.secondary}; /* Using secondary theme color for emphasis */
+  color: ${({ theme }) => theme.colors.secondary};
   margin-bottom: 30px;
 `;
 
-const CTAButton = styled.a`
+// CTAButton is now styled(Link)
+const CTAButton = styled(Link)`
+  display: inline-block; /* Link renders an <a> which is inline by default */
   background-color: ${({ theme }) => theme.colors.primary};
   color: white;
   padding: 15px 30px;
@@ -47,7 +49,7 @@ const CTAButton = styled.a`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.accent}; /* Using accent color on hover */
+    background-color: ${({ theme }) => theme.colors.accent};
     cursor: pointer;
   }
 `;
@@ -90,10 +92,10 @@ const HomePage = () => {
     <PageContainer>
       <MainTitle>Dashboard Creator</MainTitle>
       <Subtitle>Our quick lane to onboard customers 🚀</Subtitle>
-      {/* Updated Link href below */}
-      <Link href="/settings" passHref>
-        <CTAButton>Get Started</CTAButton>
-      </Link>
+      {/* CTAButton is now a Link itself, href is passed directly */}
+      <CTAButton href="/settings">
+        Get Started
+      </CTAButton>
       <FeaturesGrid>
         <FeatureCard>
           <h3>Modern Interface</h3>
