@@ -24,7 +24,12 @@ const MainTitle = styled.h1`
   font-size: 2rem;
 `;
 
-const Section = styled.div`
+const Section = styled.div.attrs(props => ({
+  // Add a known class name, ensuring to append to existing if any
+  // Also, forward the data-testid prop if it exists, so it's applied to the DOM element
+  className: [props.className, 'self-ref-section'].filter(Boolean).join(' '),
+  'data-testid': props['data-testid']
+}))`
   margin-bottom: 30px; /* Increased margin */
   padding: 20px; /* Increased padding */
   border: 1px solid #ddd; /* Slightly darker border */
@@ -32,11 +37,12 @@ const Section = styled.div`
   background-color: #fff; /* White background for sections */
   box-shadow: 0 1px 4px rgba(0,0,0,0.05);
 
-  & > ${Section} { /* Style for nested sections */
-    margin-top: 20px;
-    border-color: #e0e0e0;
-    background-color: #fdfdfd; /* Slightly different bg for nested */
-    box-shadow: none; /* Remove double shadow for nested */
+  /* Target nested sections using the added class */
+  & > .self-ref-section {
+    margin-top: 15px; /* As per request */
+    border: 1px solid #eee; /* As per request */
+    background-color: #fdfdfd; /* As per request */
+    box-shadow: none; /* As per request */
   }
 `;
 
