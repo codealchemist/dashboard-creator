@@ -1,8 +1,7 @@
 // components/Layout.js
 import styled from 'styled-components';
-import Link from 'next/link';
+import Link from 'next/link'; // Modern Link
 import { useRouter } from 'next/router';
-import React from 'react'; // Import React for forwardRef
 
 const LayoutContainer = styled.div`
   display: flex;
@@ -42,45 +41,28 @@ const Nav = styled.nav`
   gap: 8px;
 `;
 
-// NavLinkStyled is now a div, containing the styles
-const NavLinkStyled = styled.div`
-  color: ${({ theme, active }) => (active ? '#ffffff' : theme.colors.sidebarText)};
+// NavLink is now styled.a
+// The '$active' prop is transient and will not be passed to the DOM element
+const NavLink = styled.a`
+  color: ${({ theme, $active }) => ($active ? '#ffffff' : theme.colors.sidebarText)};
+  text-decoration: none; /* Explicitly remove underline from <a> */
   padding: 14px 20px;
   font-size: 1.05em;
-  font-weight: ${({ active }) => (active ? '600' : '500')};
+  font-weight: ${({ $active }) => ($active ? '600' : '500')};
   border-radius: 6px;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.1s ease;
+  position: relative;
+  cursor: pointer;
 
-  /* Apply background and shadow based on active state */
-  background-color: ${({ active, theme }) => (active ? theme.colors.sidebarActiveBg : 'transparent')};
-  ${({ active, theme }) => active && `box-shadow: 0 0 10px rgba(26, 188, 156, 0.3);`}
+  background-color: ${({ $active, theme }) => ($active ? theme.colors.sidebarActiveBg : 'transparent')};
+  ${({ $active, theme }) => $active && `box-shadow: 0 0 10px rgba(26, 188, 156, 0.3);`}
 
   &:hover {
-    /* Ensure hover on the NavLink (which is <a>) triggers style on NavLinkStyled */
-    /* This will be handled by className prop passed to <a> by Link if needed,
-       or by NavLink component logic. For simplicity, we style based on NavLinkStyled's hover directly. */
-    background-color: ${({ theme, active }) => (active ? theme.colors.sidebarActiveBg : theme.colors.sidebarHoverBg)};
+    background-color: ${({ theme, $active }) => ($active ? theme.colors.sidebarActiveBg : theme.colors.sidebarHoverBg)};
     color: #ffffff;
     transform: translateX(3px);
   }
 `;
-
-// NavLink is a React component that forwards refs and renders an <a> tag.
-// The props 'active' and 'className' (from Link) are important.
-// 'href' is also passed from Link.
-const NavLink = React.forwardRef(({ href, children, className, active }, ref) => {
-  // The className prop from <Link> might contain Next.js specific classes for active links,
-  // though we are handling 'active' manually with `router.pathname`.
-  // We combine router-based active state with styled-component's active prop.
-  return (
-    <a href={href} className={className} ref={ref} style={{ textDecoration: 'none' }}>
-      <NavLinkStyled active={active}>
-        {children}
-      </NavLinkStyled>
-    </a>
-  );
-});
-NavLink.displayName = 'NavLink'; // Useful for debugging
 
 const menuItems = [
   { name: 'Home', path: '/' },
@@ -105,9 +87,10 @@ const Layout = ({ children }) => {
           {menuItems.map((item) => {
             const isActive = router.pathname === item.path;
             return (
-              // Use legacyBehavior to make Link pass href to the <a> tag rendered by our NavLink component
-              <Link key={item.name} href={item.path} passHref legacyBehavior>
-                <NavLink active={isActive}>
+              // Link no longer uses legacyBehavior.
+              // passHref is used to ensure href is passed to the styled.a component.
+              <Link key={item.name} href={item.path} passHref>
+                <NavLink $active={isActive}> {/* Pass isActive as $active */}
                   {item.name}
                 </NavLink>
               </Link>
