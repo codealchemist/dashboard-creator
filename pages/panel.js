@@ -136,7 +136,7 @@ const PanelForm = () => {
     <PanelWrapper>
       <MainTitle>Panel Configuration</MainTitle>
 
-      <Section>
+      <Section data-testid="section-General">
         <SectionTitle>General</SectionTitle>
         <TextInput label="Title" value={formState.title} onChange={handleChange(null, 'title')} />
         <ColorPicker label="Background Color" value={formState.backgroundColor} onChange={handleColorChange(null, 'backgroundColor')} />
@@ -145,7 +145,7 @@ const PanelForm = () => {
         <TextInput label="Emergency Message" value={formState.emergencyMessage} onChange={handleChange(null, 'emergencyMessage')} />
       </Section>
 
-      <Section>
+      <Section data-testid="section-CurrentWeather">
         <SectionTitle>Current Weather</SectionTitle>
         <Checkbox label="Show Current Weather" value={formState.currentWeatherProps.show} onChange={handleChange('currentWeatherProps', 'show')} />
         <ColorPicker label="Background Color" value={formState.currentWeatherProps.backgroundColor} onChange={handleColorChange('currentWeatherProps', 'backgroundColor')} />
@@ -158,7 +158,7 @@ const PanelForm = () => {
         <ColorPicker label="Minor Font Color" value={formState.currentWeatherProps.minorFontColor} onChange={handleColorChange('currentWeatherProps', 'minorFontColor')} />
       </Section>
 
-      <Section>
+      <Section data-testid="section-BattalionChief">
         <SectionTitle>Battalion Chief</SectionTitle>
         <Checkbox label="Show Battalion Chief" value={formState.battalionChief.show} onChange={handleChange('battalionChief', 'show')} />
         <TextInput label="Name" value={formState.battalionChief.name} onChange={handleChange('battalionChief', 'name')} />
@@ -173,7 +173,7 @@ const PanelForm = () => {
         />
       </Section>
 
-      <Section>
+      <Section data-testid="section-Shift">
         <SectionTitle>Shift</SectionTitle>
         <Checkbox label="Show Shift Information" value={formState.shift.show} onChange={handleChange('shift', 'show')} />
         <Dropdown label="Position" value={formState.shift.position} onChange={handleChange('shift', 'position')} options={positionOptions} />
@@ -187,7 +187,7 @@ const PanelForm = () => {
         />
       </Section>
 
-      <Section>
+      <Section data-testid="section-Ticker">
         <SectionTitle>Ticker</SectionTitle>
         <Checkbox label="Show Ticker" value={formState.ticker.show} onChange={handleChange('ticker', 'show')} />
         <TextInput label="Behavior (scroll, slide, alternate)" value={formState.ticker.behavior} onChange={handleChange('ticker', 'behavior')} />

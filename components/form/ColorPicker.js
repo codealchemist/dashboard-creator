@@ -14,7 +14,9 @@ const Label = styled.label`
   font-weight: bold;
 `;
 
-const SketchPickerWrapper = styled.div`
+const SketchPickerWrapper = styled.div.attrs(() => ({
+  'data-testid': 'color-picker-wrapper',
+}))`
   padding: 5px;
   background: #fff;
   border-radius: 4px;
@@ -63,7 +65,7 @@ const ColorPicker = ({ label, value, onChange }) => {
   return (
     <ColorPickerWrapper>
       <Label>{label}</Label>
-      <SketchPickerWrapper onClick={handleClick}>
+      <SketchPickerWrapper onClick={handleClick} role="button" tabIndex={0} aria-pressed={displayColorPicker}>
         <ColorSwatch color={value} />
       </SketchPickerWrapper>
       {displayColorPicker ? (
